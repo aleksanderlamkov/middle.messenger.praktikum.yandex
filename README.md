@@ -10,8 +10,9 @@
 - Настроен Express-сервер с раздачей статики;
 - Произведена синхронизация репозитория с Netlify
 
-## Макет
-[Прототип макета в Figma](https://www.figma.com/file/X6gpLBwpIw0qiFh7bs9p4K/Messenger-UI-Kit?node-id=0%3A1&t=QekbQWmKP3BYQ8MO-1)
+## Полезные ссылки
+- [Прототип макета в Figma](https://www.figma.com/file/X6gpLBwpIw0qiFh7bs9p4K/Messenger-UI-Kit?node-id=0%3A1&t=QekbQWmKP3BYQ8MO-1)
+- [Развернутое приложение на сервисе Netlify](https://chatty-box.netlify.app/)
 
 ## Инициализация и запуск
 Порядок выполнения команд:
