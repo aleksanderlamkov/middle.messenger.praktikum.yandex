@@ -1,0 +1,12 @@
+@import "../../shared/styles/mixins.pcss";
+
+.container {
+  width: 100%;
+  max-width: calc(var(--grid-width) + var(--grid-padding) * 2);
+  margin-inline: auto;
+  padding-inline: var(--grid-padding);
+}
+
+.visually-hidden {
+  @mixin visually-hidden;
+}

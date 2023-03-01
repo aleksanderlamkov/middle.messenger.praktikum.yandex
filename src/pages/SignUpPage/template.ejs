@@ -1,0 +1,54 @@
+<%
+const title = 'Sign Up'
+const fields = [
+	{
+		name: 'first-name',
+		label: 'First name',
+		placeholder: 'Your first name',
+	},
+	{
+		name: 'second-name',
+		label: 'Second name',
+		placeholder: 'Your second name',
+	},
+	{
+		name: 'login',
+		label: 'Login',
+		placeholder: 'Your login',
+	},
+	{
+		name: 'email',
+		label: 'Email',
+		placeholder: 'example@email.com',
+		type: 'email',
+	},
+	{
+		name: 'phone',
+		label: 'Phone',
+		placeholder: '+7 (999) 999-99-99',
+		type: 'tel',
+	},
+	{
+		name: 'password',
+		label: 'Password',
+		placeholder: 'Your password',
+		type: 'password',
+	},
+	{
+		name: 'password-repeat',
+		label: 'Repeat password',
+		placeholder: 'Your password again',
+		type: 'password',
+	},
+]
+
+const userFormProps = {
+	submitButtonLabel: title,
+	fields,
+	linkHref: '/',
+	linkLabel: 'Sign In',
+}
+%>
+
+<%- include('../../shared/ui/page-header/template.ejs', { title }) %>
+<%- include('../../widgets/user-form/template.ejs', userFormProps) %>

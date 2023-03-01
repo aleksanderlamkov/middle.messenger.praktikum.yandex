@@ -1,0 +1,13 @@
+@import "../../styles/mixins.pcss";
+
+.logo {
+  @media (--hoverable) {
+    &:hover {
+      @mixin scale 1.025;
+    }
+  }
+
+  @media (--mobile-s) {
+    @mixin square 60px;
+  }
+}

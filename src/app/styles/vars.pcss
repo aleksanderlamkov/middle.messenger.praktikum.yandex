@@ -1,0 +1,55 @@
+@import "../../shared/styles/mixins.pcss";
+
+:root {
+  --color-dark: #191820;
+  --color-light: #ECECEC;
+
+  --color-accent: #AE8BF8;
+  --color-secondary: #F2A78C;
+
+  --color-gray: #B3B3B3;
+
+  --color-error: #e54a4a;
+  --color-success: #2d9d2d;
+
+  --color-overlay: rgba(255, 255, 255, 0.5);
+
+  --box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.05), 5px 5px 5px rgba(0, 0, 0, 0.5);
+  --box-shadow-barely: -5px -5px 5px rgba(255, 255, 255, 0.05);
+
+  --border-light: 1px solid var(--color-light);
+
+  --border-radius: 16px;
+  --border-radius-small: 8px;
+
+  --base-font-family: 'Inter', sans-serif;
+  --base-font-weight: 400;
+  --base-font-size: 20px;
+  --base-line-height: 1.5;
+
+  --grid-width: 1700px;
+  --grid-padding: 30px;
+  --section-gap-y: 40px;
+
+  --input-height: 44px;
+  --input-padding-x: 16px;
+
+  --focus-outline: 2px dashed var(--color-light);
+  --focus-outline-offset: 2px;
+
+  --base-transition-duration: 0.2s;
+
+  --layer-default: initial;
+  --layer-controls: 100;
+  --layer-tooltip: 200;
+  --layer-overlay: 300;
+  --layer-overlay-controls: 400;
+  --layer-modal: 500;
+  --layer-modal-controls: 600;
+
+  @media (--mobile) {
+    --base-font-size: 18px;
+    --grid-padding: 15px;
+    --section-gap-y: 20px;
+  }
+}

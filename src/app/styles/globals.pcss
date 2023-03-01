@@ -1,0 +1,62 @@
+@import "../../shared/styles/mixins.pcss";
+
+body {
+  color: var(--color-light);
+  font: var(--base-font-weight) var(--base-font-size)/var(--base-line-height) var(--base-font-family);
+  background-color: var(--color-dark);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+
+  &__header,
+  &__footer {
+    flex-shrink: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--section-gap-y);
+    flex-grow: 1;
+    padding-block: 30px;
+
+    @media (--mobile) {
+      padding-block: 20px;
+    }
+  }
+}
+
+svg,
+svg *,
+a,
+button,
+input,
+textarea,
+label,
+::before,
+::after,
+::placeholder {
+  @mixin transition;
+}
+
+a,
+button {
+  display: inline-flex;
+
+  &:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+  }
+}
+
+a {
+  color: var(--color-accent);
+
+  &:hover {
+    @media (--hoverable) {
+      color: var(--color-secondary)
+    }
+  }
+}

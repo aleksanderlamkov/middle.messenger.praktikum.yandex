@@ -1,0 +1,28 @@
+<%
+const {
+	fields = [],
+	submitButtonLabel = 'Sign In',
+	linkHref = '/',
+	linkLabel = 'Sign Up',
+} = { ...arguments?.[0] }
+%>
+
+<form class="user-form">
+	<fieldset class="user-form__group">
+		<% fields.forEach((field) => { %>
+			<%- include('../../shared/ui/input/template.ejs', {
+				extraClasses: 'user-form__input',
+				...field
+			}) %>
+		<% }) %>
+	</fieldset>
+	<fieldset class="user-form__group">
+		<%- include('../../shared/ui/button/template.ejs', {
+			children: submitButtonLabel,
+			type: 'submit',
+		}) %>
+		<a class="user-form__link" href="<%= linkHref %>">
+			<%= linkLabel %>
+		</a>
+	</fieldset>
+</form>

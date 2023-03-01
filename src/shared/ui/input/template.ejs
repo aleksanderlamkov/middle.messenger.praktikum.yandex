@@ -1,0 +1,25 @@
+<%
+const {
+	extraClasses = '',
+	extraAttrs = '',
+	name,
+	label,
+	placeholder = '',
+	type = 'text',
+} = { ...arguments?.[0] }
+%>
+
+<label class="<%= extraClasses %> input">
+	<input
+		class="input__control"
+		name="<%= name %>"
+		type="<%= type %>"
+		<% if (placeholder) { %>
+			placeholder="<%= placeholder %>"
+		<% } %>
+		<%- extraAttrs %>
+	/>
+	<span class="input__label">
+		<%= label %>
+	</span>
+</label>

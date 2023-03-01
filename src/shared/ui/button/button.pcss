@@ -1,0 +1,39 @@
+@import "../../styles/mixins.pcss";
+
+.button {
+  --buttonHeight: var(--input-height);
+  --buttonPaddingX: 24px;
+  --buttonTextColor: var(--color-light);
+  --buttonBgColor: var(--color-accent);
+  --buttonBorderColor: transparent;
+  --buttonBorderRadius: var(--border-radius-small);
+  --buttonBoxShadow: var(--box-shadow-barely);
+
+  --buttonHoverBgColor: var(--color-secondary);
+
+  --buttonFocusBgColor: var(--color-secondary);
+  --buttonFocusBorderColor: var(--color-light);
+
+  justify-content: center;
+  align-items: center;
+  min-width: 250px;
+  height: var(--buttonHeight);
+  padding-inline: var(--buttonPaddingX);
+  text-align: center;
+  color: var(--buttonTextColor);
+  background-color: var(--buttonBgColor);
+  border: 2px solid var(--buttonBorderColor);
+  border-radius: var(--buttonBorderRadius);
+  box-shadow: var(--buttonBoxShadow);
+
+  &:hover {
+    @media (--hoverable) {
+      background-color: var(--buttonHoverBgColor);
+    }
+  }
+
+  &:focus {
+    background-color: var(--buttonFocusBgColor);
+    border-color: var(--buttonFocusBorderColor);
+  }
+}
