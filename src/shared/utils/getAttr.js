@@ -8,4 +8,3 @@ const getAttr = (attr) => {
 }
 
 export default getAttr
-
