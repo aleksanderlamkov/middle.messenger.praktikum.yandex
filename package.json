@@ -4,7 +4,7 @@
   "repository": "git@github.com:Blackwh1te/middle.messenger.praktikum.yandex.git",
   "author": "a.lamkov <a.lamkov@vk.team>",
   "license": "MIT",
-  "engine": "19.1.0",
+  "engines": { "node" : ">=16" },
   "browserslist": [
     "last 2 versions"
   ],
