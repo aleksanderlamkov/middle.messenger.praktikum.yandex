@@ -1,1 +1,1 @@
-export { default as routes, getCurrentPage } from './routes'
+export { default as Router, routes, routerEvents } from './routes'

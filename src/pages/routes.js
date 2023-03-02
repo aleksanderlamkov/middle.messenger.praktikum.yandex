@@ -1,3 +1,5 @@
+import { bubble } from '../shared/utils/bubble'
+
 const routes = {
   '/': 'ChatPage',
   '/chats': 'ChatPage',
@@ -8,32 +10,82 @@ const routes = {
   '*': 'Error404',
 }
 
-const getCurrentPage = () => routes[location.pathname] || routes['*']
+const routerEvents = {
+  changeState: 'router::changeState'
+}
 
-const initRouter = (callback) => {
-  switch (getCurrentPage()) {
-    case 'ChatPage': {
-      import('./ChatPage/template.ejs').then(callback)
-      break
+class Routes {
+  els = {
+    link: '[data-js-router-link]',
+  }
+
+  constructor(renderCallback) {
+    this.bindEvents()
+    this.renderCallback = renderCallback
+  }
+
+  static navigate(href) {
+    history.pushState(null, null, href)
+  }
+
+  static get currentRoute() {
+    return routes[location.pathname] || routes['*']
+  }
+
+  renderRoute() {
+    switch (Routes.currentRoute) {
+      case 'ChatPage': {
+        import('./ChatPage/template.ejs').then(this.renderCallback)
+        break
+      }
+      case 'SignInPage': {
+        import('./SignInPage/template.ejs').then(this.renderCallback)
+        break
+      }
+      case 'SignUpPage': {
+        import('./SignUpPage/template.ejs').then(this.renderCallback)
+        break
+      }
+      case 'ProfilePage': {
+        import('./ProfilePage/template.ejs').then(this.renderCallback)
+        break
+      }
+      default: {
+        import('./Error404Page/template.ejs').then(this.renderCallback)
+        break
+      }
     }
-    case 'SignInPage': {
-      import('./SignInPage/template.ejs').then(callback)
-      break
+  }
+
+  manageHistory(routerLinkNode, hasRender = true) {
+    const { href } = routerLinkNode
+
+    Routes.navigate(href)
+    bubble(document, routerEvents.changeState, href)
+    if (hasRender) {
+      this.renderRoute()
     }
-    case 'SignUpPage': {
-      import('./SignUpPage/template.ejs').then(callback)
-      break
+  }
+
+  handleClick(event) {
+    const { target } = event
+    const routerLinkNode = target.closest(this.els.link)
+
+    if (routerLinkNode) {
+      event.preventDefault()
+      this.manageHistory(routerLinkNode)
     }
-    case 'ProfilePage': {
-      import('./ProfilePage/template.ejs').then(callback)
-      break
-    }
-    default: {
-      import('./Error404Page/template.ejs').then(callback)
-      break
-    }
+  }
+
+  handlePopState() {
+    this.renderRoute()
+  }
+
+  bindEvents() {
+    document.addEventListener('click', (event) => this.handleClick(event))
+    window.addEventListener('popstate', () => this.handlePopState())
   }
 }
 
-export { getCurrentPage, initRouter }
-export default routes
+export { routes, routerEvents }
+export default Routes

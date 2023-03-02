@@ -8,7 +8,7 @@ const {
 	<ul class="header__menu-list">
 		<% items.forEach(({ href, label }) => { %>
 			<li class="header__menu-item">
-				<a class="header__menu-link" href="<%= href %>">
+				<a class="header__menu-link" href="<%= href %>" data-js-router-link>
 					<%= label %>
 				</a>
 			</li>
