@@ -11,7 +11,7 @@
   "scripts": {
     "start": "concurrently \"yarn run serve\" \"sleep 3 && yarn run watch\" & open http://localhost:3000",
     "dev": "parcel static/*.html",
-    "build": "parcel build static/*.html & open http://localhost:3000",
+    "build": "parcel build static/*.html",
     "watch": "parcel watch static/*.html",
     "serve": "pkill node & nodemon server.js"
   },
