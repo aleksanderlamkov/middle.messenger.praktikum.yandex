@@ -11,7 +11,8 @@
     "last 2 versions"
   ],
   "scripts": {
-    "start": "concurrently \"yarn run serve\" \"sleep 3 && yarn run watch\" & open http://localhost:3000",
+    "start": "parcel build static/*.html && node server.js",
+    "start-watch": "concurrently \"yarn run serve\" \"sleep 3 && yarn run watch\" & open http://localhost:3000",
     "dev": "parcel static/*.html --open",
     "build": "parcel build static/*.html",
     "watch": "parcel watch static/*.html",
