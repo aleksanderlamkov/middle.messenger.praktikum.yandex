@@ -1,0 +1,78 @@
+<%
+const fields = [
+	{
+		name: 'first_name',
+		label: 'First name',
+		placeholder: 'Your first name',
+	},
+	{
+		name: 'phone',
+		label: 'Phone',
+		placeholder: '+7 (999) 999-99-99',
+		type: 'tel'
+	},
+	{
+		name: 'second_name',
+		label: 'Second name',
+		placeholder: 'Your second name',
+	},
+	{
+		name: 'display_name',
+		label: 'Display name',
+		placeholder: 'Your display name',
+	},
+	{
+		name: 'password',
+		label: 'Current password',
+		placeholder: 'Your current password',
+		type: 'password',
+	},
+	{
+		name: 'login',
+		label: 'Login',
+		placeholder: 'Your login',
+	},
+	{
+		name: 'new-password',
+		label: 'New password',
+		placeholder: 'Your new password',
+		type: 'password',
+	},
+	{
+		name: 'email',
+		label: 'Email',
+		placeholder: 'example@email.com',
+		type: 'email',
+	},
+	{
+		name: 'password-repeat',
+		label: 'Repeat password',
+		placeholder: 'New password again',
+		type: 'password',
+	},
+]
+%>
+
+<form class="profile-form">
+	<%- include('../../shared/ui/avatar-upload/template.ejs', {
+		extraClasses: 'profile-form__avatar-upload',
+		id: 'avatar',
+		name: 'avatar',
+		buttonLabel: 'Change avatar',
+	}) %>
+	<fieldset class="profile-form__body">
+		<% fields.forEach((field) => { %>
+			<%- include('../../shared/ui/input/template.ejs', {
+				extraClasses: 'profile-form__input',
+				...field
+			}) %>
+		<% }) %>
+	</fieldset>
+	<footer class="profile-form__actions">
+		<%- include('../../shared/ui/button/template.ejs', {
+			extraClasses: 'profile-form__submit-button',
+			children: 'Save',
+			type: 'submit',
+		}) %>
+	</footer>
+</form>

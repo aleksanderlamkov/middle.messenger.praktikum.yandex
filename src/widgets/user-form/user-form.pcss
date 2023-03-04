@@ -1,0 +1,34 @@
+@import "../../shared/styles/mixins.pcss";
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 50px;
+  width: 100%;
+  max-width: 500px;
+  margin-inline: auto;
+  padding: 80px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+
+  @media (--mobile) {
+    padding: 30px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 100%;
+  }
+
+  &__input {
+    --inputWidth: 100%;
+  }
+
+  &__link {
+    margin-inline: auto;
+  }
+}

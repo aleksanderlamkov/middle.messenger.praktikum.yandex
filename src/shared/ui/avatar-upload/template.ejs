@@ -1,0 +1,42 @@
+<%
+const {
+	extraClasses = '',
+	id = 'avatar',
+	name = 'avatar',
+	buttonLabel = 'Change avatar',
+	defaultImgSrc = '/src/assets/avatar-placeholder.jpg',
+} = { ...arguments?.[0] }
+
+const moduleProps = {
+	validImageExtensions: ['png', 'jpg', 'jpeg'],
+}
+%>
+
+<div
+	class="<%= extraClasses %> avatar-upload"
+	data-js-avatar-upload="<%= JSON.stringify(moduleProps) %>"
+>
+	<img
+		class="avatar-upload__image"
+		src="<%= defaultImgSrc %>"
+		alt="Your avatar"
+		width="124"
+		height="124"
+		loading="lazy"
+		data-js-avatar-upload-image
+	/>
+	<input
+		class="avatar-upload__control visually-hidden"
+		id="<%= id %>"
+		name="<%= name %>"
+		type="file"
+		data-js-avatar-upload-image-control
+	/>
+	<label
+		class="avatar-upload__button button"
+		for="<%= id %>"
+	>
+		<%= buttonLabel %>
+	</label>
+	<span class="avatar-upload__error" data-js-avatar-upload-image-error></span>
+</div>

@@ -1,0 +1,22 @@
+<%
+const {
+  extraClasses = '',
+	href = '/',
+	title = 'Home page',
+	ariaLabel = 'Home page',
+} = { ...arguments?.[0] }
+%>
+
+<a
+	class="logo <%= extraClasses %>"
+	href="<%= href %>"
+	aria-label="<%= ariaLabel %>"
+	data-js-router-link
+>
+	<img
+		class="logo__image"
+		src="/src/assets/logo.svg"
+		alt="<%= title %>"
+		title="<%= title %>"
+	/>
+</a>

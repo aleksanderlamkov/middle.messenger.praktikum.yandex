@@ -1,0 +1,17 @@
+import './reset.pcss'
+import './normalize.pcss'
+import './vars.pcss'
+import './utils.pcss'
+import './globals.pcss'
+import './headings.pcss'
+
+import '../../widgets/header/header.pcss'
+import '../../widgets/footer/footer.pcss'
+import '../../widgets/user-form/user-form.pcss'
+import '../../widgets/profile-form/profile-form.pcss'
+
+import '../../shared/ui/button/button.pcss'
+import '../../shared/ui/input/input.pcss'
+import '../../shared/ui/logo/logo.pcss'
+import '../../shared/ui/page-header/page-header.pcss'
+import '../../shared/ui/avatar-upload/avatar-upload.pcss'

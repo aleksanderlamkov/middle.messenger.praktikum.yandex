@@ -1,0 +1,16 @@
+<%
+const {
+  extraClasses = '',
+	extraAttrs = '',
+	children = 'Click me',
+	type = 'Button',
+} = { ...arguments?.[0] }
+%>
+
+<button
+	class="button <%= extraClasses %>"
+	type="<%= type %>"
+	<%- extraAttrs %>
+>
+	<%- children %>
+</button>

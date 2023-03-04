@@ -1,0 +1,34 @@
+{
+  "name": "middle.messenger.praktikum.yandex",
+  "version": "1.0.0",
+  "repository": "git@github.com:Blackwh1te/middle.messenger.praktikum.yandex.git",
+  "author": "a.lamkov <a.lamkov@vk.team>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "scripts": {
+    "start": "parcel build static/*.html && node server.js",
+    "start-watch": "concurrently \"yarn run serve\" \"sleep 3 && yarn run watch\" & open http://localhost:3000",
+    "dev": "parcel static/*.html --open",
+    "build": "parcel build static/*.html",
+    "watch": "parcel watch static/*.html",
+    "serve": "pkill node server.js"
+  },
+  "devDependencies": {
+    "concurrently": "7.6.0",
+    "ejs": "3.1.8",
+    "express": "4.18.2",
+    "parcel": "2.8.3",
+    "parcel-transformer-ejs": "1.0.1",
+    "postcss": "8.4.21",
+    "postcss-custom-media": "9.1.2",
+    "postcss-easy-import": "4.0.0",
+    "postcss-for": "2.1.1",
+    "postcss-mixins": "9.0.4",
+    "postcss-nested": "6.0.1"
+  }
+}
