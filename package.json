@@ -15,13 +15,12 @@
     "dev": "parcel static/*.html --open",
     "build": "parcel build static/*.html",
     "watch": "parcel watch static/*.html",
-    "serve": "pkill node & nodemon server.js"
+    "serve": "pkill node server.js"
   },
   "devDependencies": {
     "concurrently": "7.6.0",
     "ejs": "3.1.8",
     "express": "4.18.2",
-    "nodemon": "^2.0.21",
     "parcel": "2.8.3",
     "parcel-transformer-ejs": "1.0.1",
     "postcss": "8.4.21",
