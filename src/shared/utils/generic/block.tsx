@@ -1,8 +1,11 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import EventBus from './eventBus'
 import cloneAttributes from '../cloneAttributes'
 
-type FC<TComponentProps> = (props: TComponentProps) => HTMLElement
+type FC<TComponentProps> = (props: TComponentProps) => JSX.Element
+type TProps = Record<string, any>
+type TComponent = FC<TProps>
 
 class Block<TComponentProps> {
   private static EVENTS: Record<string, string> = {
@@ -12,12 +15,12 @@ class Block<TComponentProps> {
     FLOW_RENDER: 'flow:render',
   }
 
-  protected component: FC<TComponentProps>
+  protected component: TComponent
   protected _key: string | null = null
-  protected props: TComponentProps
+  protected props: TProps
   protected eventBus: EventBus
 
-  constructor(Component: FC<TComponentProps>, props: TComponentProps) {
+  constructor(Component: FC<TComponentProps>, props: TProps) {
     this.component = Component
     this.props = this.getProxyProps(props)
     this.eventBus = new EventBus()
@@ -43,12 +46,12 @@ class Block<TComponentProps> {
     this.eventBus.on(Block.EVENTS.FLOW_RENDER, this.render.bind(this))
   }
 
-  private getProxyProps(props) {
+  private getProxyProps(props: TProps) {
     return new Proxy(props, {
-      get: (target, prop) => {
+      get: (target, prop: string) => {
         return target[prop]
       },
-      set: (target, prop, value) => {
+      set: (target, prop: string, value) => {
         const oldProp = target[prop]
 
         target[prop] = value
@@ -72,7 +75,7 @@ class Block<TComponentProps> {
 
   componentDidMount(): void {}
 
-  _componentDidUpdate(oldProp, newProp): void {
+  _componentDidUpdate(oldProp: any, newProp: any): void {
     const shouldUpdate = this.componentDidUpdate(oldProp, newProp)
 
     if (shouldUpdate) {
@@ -80,7 +83,7 @@ class Block<TComponentProps> {
     }
   }
 
-  componentDidUpdate(oldProp, newProp): boolean {
+  componentDidUpdate(oldProp: any, newProp: any): boolean {
     return oldProp !== newProp
   }
 
@@ -94,8 +97,7 @@ class Block<TComponentProps> {
     Object.assign(this.props, nextProps)
   }
 
-  private addEvents(Component) {
-    // @ts-ignore
+  private addEvents(Component: Element) {
     const { events = {} } = this.props
 
     Object.keys(events).forEach((eventName) => {
@@ -103,27 +105,19 @@ class Block<TComponentProps> {
     })
   }
 
-  private removeEvents(Component) {
-    // @ts-ignore
-    const { events = {} } = this.props
-
-    Object.keys(events).forEach((eventName) => {
-      Component.removeEventListener(eventName, events[eventName])
-    })
-  }
-
   get oldNode(): HTMLElement {
     return document.querySelector(`[data-key="${this.key}"]`)!
   }
 
-  render() {
+  render(): any {
     const Component = this.component
-    const ComponentWithProps = <Component {...this.props}/>
+    // @ts-ignore
+    const ComponentWithProps = <Component {...this.props} /> as unknown as HTMLElement
     const isMounting = !Boolean(this.key)
 
     if (isMounting) {
       this.addEvents(ComponentWithProps)
-      this.key = ComponentWithProps.dataset.key
+      this.key = ComponentWithProps.dataset.key as string
     } else {
       const oldNode = this.oldNode
       if (oldNode) {

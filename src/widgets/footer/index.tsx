@@ -1,3 +1,4 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import './footer.pcss'
 

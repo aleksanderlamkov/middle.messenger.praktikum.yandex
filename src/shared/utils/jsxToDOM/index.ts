@@ -2,7 +2,10 @@ type TElement = string | Function
 type TProperties = Record<string, unknown>
 type TChildren = Array<HTMLElement | string>
 
-const getNonNullable = (value: TProperties | null, fallback ): TProperties => {
+const getNonNullableProperties = (
+  value: TProperties,
+  fallback: TProperties = {}
+): TProperties => {
   return Boolean(value) ? value : fallback
 }
 
@@ -21,8 +24,8 @@ const getParsedChildren = (children: TChildren): Array<HTMLElement | string | Te
 const getParsedNode = (element: string, properties: TProperties, children: TChildren) => {
   const _element = document.createElement(element)
 
-  Object.keys(getNonNullable(properties, {})).forEach((key) => {
-    _element[key] = properties[key]
+  Object.keys(getNonNullableProperties(properties, {})).forEach((key) => {
+    (_element as any)[key] = properties[key]
   })
 
   const renderChildren = (children: TChildren): void => {
@@ -44,7 +47,7 @@ const getParsedNode = (element: string, properties: TProperties, children: TChil
   /**
    * Unique ID for correct rendering of 'flow:component-did-mount' phase
    */
-  const id = Date.now().toString(36) + Math.random().toString(36).substring(2)
+  const id: string = Date.now().toString(36) + Math.random().toString(36).substring(2)
 
   _element.dataset.key = id
 
@@ -63,7 +66,7 @@ const jsxToDOM = (
 
   return isFunction
     ? element({
-      ...getNonNullable(properties, {}),
+      ...getNonNullableProperties(properties, {}),
       children,
     })
     : getParsedNode(element, properties, children)

@@ -1,8 +1,10 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import classNames from '../../utils/classNames'
 import AvatarUploadControl from './components/AvatarUploadControl'
 import { TAvatarUpload } from './types'
 import './avatar-upload.pcss'
+import Fragment from '../fragment'
 
 const AvatarUpload = (props: TAvatarUpload) => {
   const {
@@ -23,14 +25,15 @@ const AvatarUpload = (props: TAvatarUpload) => {
         alt="Your avatar"
         width="124"
         height="124"
-        dataJs
         loading="lazy"
       />
-      {new AvatarUploadControl({
-        id,
-        name,
-        events: { change: onChange },
-      })}
+      <Fragment>
+        {new AvatarUploadControl({
+          id,
+          name,
+          events: { change: onChange },
+        })}
+      </Fragment>
       <label
         className="avatar-upload__button button"
         htmlFor={id}

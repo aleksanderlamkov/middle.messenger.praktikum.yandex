@@ -5,5 +5,5 @@ export type TAvatarUpload = Omit<TAvatarUploadControl, 'events'> & {
   buttonLabel?: string
   imgSrc?: string
   error?: string
-  onChange: TAvatarUploadControlOnChange
+  onChange?: TAvatarUploadControlOnChange
 }

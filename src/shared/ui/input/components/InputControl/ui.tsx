@@ -1,3 +1,4 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import { TInputControl } from './types'
 

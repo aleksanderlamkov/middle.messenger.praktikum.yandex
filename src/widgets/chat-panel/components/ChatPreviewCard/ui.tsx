@@ -1,7 +1,8 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
+import classNames from '../../../../shared/utils/classNames'
 import { TChatPreviewCard } from './types'
 import './ChatPreviewCard.pcss'
-import classNames from '../../../../shared/utils/classNames'
 
 const ChatPreviewCard = (props: TChatPreviewCard) => {
   const {

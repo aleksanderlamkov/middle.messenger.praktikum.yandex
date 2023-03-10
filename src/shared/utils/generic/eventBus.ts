@@ -4,7 +4,7 @@ type TCallback = Function
 class EventBus {
   private listeners: Record<string, Function[]> = {}
 
-  hasEvent(event) {
+  hasEvent(event: string) {
     return this.listeners[event]
   }
 

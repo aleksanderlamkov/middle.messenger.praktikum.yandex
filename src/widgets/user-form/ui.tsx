@@ -1,10 +1,12 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Input from '../../shared/ui/input'
 import Button from '../../shared/ui/button'
 import { TUserForm } from './types'
 import './user-form.pcss'
+import Fragment from '../../shared/ui/fragment'
 
-const UserForm = (props: TUserForm): HTMLElement => {
+const UserForm = (props: TUserForm) => {
   const {
     fields = [],
     submitButtonLabel = 'Sign In',
@@ -16,10 +18,12 @@ const UserForm = (props: TUserForm): HTMLElement => {
     <form className="user-form">
       <fieldset className="user-form__group">
         {fields.map((field) => (
-          new Input({
-            className: 'user-form__input',
-            ...field,
-          })
+          <Fragment>
+            {new Input({
+              className: 'user-form__input',
+              ...field,
+            })}
+          </Fragment>
         ))}
       </fieldset>
       <fieldset className="user-form__group">

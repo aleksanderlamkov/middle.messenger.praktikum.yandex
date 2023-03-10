@@ -1,3 +1,4 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Fragment from '../../shared/ui/fragment'
 import PageHeader from '../../shared/ui/page-header'

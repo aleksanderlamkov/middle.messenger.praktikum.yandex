@@ -1,20 +1,22 @@
-import Block from '../../utils/generic/block'
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
+import Block from '../../utils/generic/block'
 import UI from './ui'
 import { TInput } from './types'
 import { validateValue, VALIDATION_PATTERNS } from '../../utils/validation'
+import { Event } from '../../types'
 
 const stateClasses: Record<string, string> = {
   isInvalid: 'is-invalid',
 }
 
 class Input extends Block<TInput> {
-  constructor(props) {
+  constructor(props: TInput) {
     super(UI, {
       ...props,
       events: {
-        focus: (event) => this.handleFocus(event),
-        blur: (event) => this.handleBlur(event),
+        focus: (event: Event<HTMLInputElement>) => this.handleFocus(event),
+        blur: (event: Event<HTMLInputElement>) => this.handleBlur(event),
       },
     })
 
@@ -32,11 +34,11 @@ class Input extends Block<TInput> {
     return isValid
   }
 
-  handleFocus({ target }) {
+  handleFocus({ target }: Event<HTMLInputElement>) {
     Input.manageValidation(target, this.props.validationPatterns)
   }
 
-  handleBlur({ target }) {
+  handleBlur({ target }: Event<HTMLInputElement>) {
     Input.manageValidation(target, this.props.validationPatterns)
   }
 }

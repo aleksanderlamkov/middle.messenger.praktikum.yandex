@@ -1,3 +1,4 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Block from '../../../../shared/utils/generic/block'
 import UI from './ui'
@@ -8,23 +9,23 @@ class ChatForm extends Block<TChatForm> {
     super(UI, {
       ...props,
       events: {
-        submit: (event) => this.handleSubmit(event)
+        submit: (event: SubmitEvent) => this.handleSubmit(event)
       }
     })
 
     return this.render()
   }
 
-  send(formNode) {
+  send(formNode: HTMLFormElement) {
     const formData = new FormData(formNode)
     const formDataFormatted = Object.fromEntries([...formData])
 
     console.debug('formDataFormatted:', formDataFormatted)
   }
 
-  handleSubmit(event) {
+  handleSubmit(event: SubmitEvent) {
     event.preventDefault()
-    this.send(event.target)
+    this.send(event.target as HTMLFormElement)
   }
 }
 

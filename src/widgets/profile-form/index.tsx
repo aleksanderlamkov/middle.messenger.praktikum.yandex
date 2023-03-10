@@ -1,3 +1,4 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Block from '../../shared/utils/generic/block'
 import UI from './ui'
@@ -9,30 +10,30 @@ class ProfileForm extends Block<TProfileForm> {
     super(UI, {
       ...props,
       events: {
-        submit: (event) => this.handleSubmit(event),
+        submit: (event: SubmitEvent) => this.handleSubmit(event),
       },
     })
 
     return this.render()
   }
 
-  send(formNode) {
+  send(formNode: HTMLFormElement) {
     const formData = new FormData(formNode)
     const formDataFormatted = Object.fromEntries([...formData])
 
     console.debug('formDataFormatted:', formDataFormatted)
   }
 
-  handleSubmit(event) {
+  handleSubmit(event: SubmitEvent) {
     event.preventDefault()
 
     const { target } = event
 
-    const isFormValid = validateForm(target, this.props.fields)
+    const isFormValid = validateForm(target as HTMLFormElement, this.props.fields)
     console.debug('isFormValid:', isFormValid)
 
     if (isFormValid) {
-      this.send(target)
+      this.send(target as HTMLFormElement)
     }
   }
 }

@@ -5,7 +5,7 @@ export type TUserForm = {
   submitButtonLabel: string
   linkHref: string
   linkLabel: string
-  events: {
+  events?: {
     submit?: Function
   }
 }

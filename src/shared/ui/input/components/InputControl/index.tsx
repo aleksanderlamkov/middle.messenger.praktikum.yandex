@@ -1,10 +1,11 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Block from '../../../../utils/generic/block'
 import UI from './ui'
 import { TInputControl } from './types'
 
 class InputControl extends Block<TInputControl> {
-  constructor(props) {
+  constructor(props: TInputControl) {
     super(UI, props)
 
     return this.render()

@@ -3,7 +3,7 @@ type Mapping = Record<string, unknown>
 interface ArgumentArray extends Array<Argument> {}
 type Argument = Value | Mapping | ArgumentArray
 
-function classNames(...args: ArgumentArray): string {
+function classNames(..._args: ArgumentArray): string {
   const classes: Value[] = []
   const hasOwn = {}.hasOwnProperty
 

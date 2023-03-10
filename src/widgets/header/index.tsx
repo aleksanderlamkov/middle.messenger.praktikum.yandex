@@ -1,3 +1,4 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import classNames from '../../shared/utils/classNames'
 import Logo from '../../shared/ui/logo'

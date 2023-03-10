@@ -1,17 +1,21 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Input from '../../../../shared/ui/input'
 import { VALIDATION_PATTERNS } from '../../../../shared/utils/validation'
 import './ChatForm.pcss'
+import Fragment from '../../../../shared/ui/fragment'
 
 const ChatForm = () => {
   return (
     <form className="chat-form">
-      {new Input({
-        className: 'chat-form__input',
-        name: 'user-message',
-        placeholder: 'Message...',
-        validationPatterns: [VALIDATION_PATTERNS.NOT_EMPTY]
-      })}
+      <Fragment>
+        {new Input({
+          className: 'chat-form__input',
+          name: 'user-message',
+          placeholder: 'Message...',
+          validationPatterns: [VALIDATION_PATTERNS.NOT_EMPTY]
+        })}
+      </Fragment>
       <button
         className="chat-form__button"
         type="submit"
@@ -24,7 +28,7 @@ const ChatForm = () => {
           width="50"
           height="50"
           loading="lazy"
-          ariaLabel="Send message"
+          aria-label="Send message"
         />
       </button>
     </form>

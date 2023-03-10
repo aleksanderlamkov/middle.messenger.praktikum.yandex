@@ -4,8 +4,11 @@
     "target": "ESNext",
     "declaration": false,
     "module": "commonjs",
-    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "sourceMap": true,
+    "strictNullChecks": true,
     "jsx": "react",
     "jsxFactory": "jsxToDOM",
     "paths": {

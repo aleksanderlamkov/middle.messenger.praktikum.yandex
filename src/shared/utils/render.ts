@@ -1,4 +1,4 @@
-const render = (selector, node) => {
+const render = (selector: string, node: HTMLElement): void => {
   const rootNode = document.querySelector(selector)
 
   if (!rootNode) {

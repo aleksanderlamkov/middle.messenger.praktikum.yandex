@@ -1,3 +1,4 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import defaultMenuItems from './defaultMenuItems'
 import { THeaderMenu } from './types'
@@ -13,7 +14,6 @@ const HeaderMenu = (props: THeaderMenu) => {
             <a
               className="header__menu-link"
               href={href}
-              data-js-router-link
             >
               {label}
             </a>

@@ -1,9 +1,8 @@
+// @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Fragment from '../../shared/ui/fragment'
 import PageHeader from '../../shared/ui/page-header'
-// import ChatPanel from '../../widgets/chat-panel/ui'
 import ChatPanel from '../../widgets/chat-panel'
-import Counter from '../../shared/ui/counter'
 import { TChatPanel } from '../../widgets/chat-panel/types'
 
 const chatProps: TChatPanel = {
@@ -99,8 +98,6 @@ const ChatPage = () => {
     <Fragment>
       <PageHeader title="Chats" />
       <ChatPanel {...chatProps} />
-      {/*{new ChatPanel(chatProps)}*/}
-      {/*{new Counter({ value: 1 })}*/}
     </Fragment>
   )
 }
