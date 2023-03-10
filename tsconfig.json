@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ESNext",
+    "declaration": false,
+    "module": "commonjs",
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "jsxFactory": "jsxToDOM",
+    "paths": {
+      "jsxToDOM": ["./src/shared/utils/jsxToDOM"]
+    }
+  }
+}

@@ -26,6 +26,7 @@ const pages = [
 ]
 
 app.use(express.static('dist'))
+app.use(express.static('public'))
 
 pages.forEach(({ path, fileName }) => {
   app.get(path, (request, response) => {

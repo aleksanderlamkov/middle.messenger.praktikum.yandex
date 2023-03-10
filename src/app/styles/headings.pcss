@@ -1,11 +1,11 @@
 @import "../../shared/styles/mixins.pcss";
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h1:not([class]), .h1,
+h2:not([class]), .h2,
+h3:not([class]), .h3,
+h4:not([class]), .h4,
+h5:not([class]), .h5,
+h6:not([class]), .h6 {
   --marginBottom: 40px;
   --tabletFontSize: 32px;
   --mobileFontSize: 24px;
@@ -39,7 +39,7 @@ h6, .h6 {
   }
 }
 
-h1,
+h1:not([class]),
 .h1 {
   --tabletFontSize: 32px;
   --mobileFontSize: 24px;
@@ -47,7 +47,7 @@ h1,
   @mixin fluid-text 48, 28;
 }
 
-h2,
+h2:not([class]),
 .h2 {
   --tabletFontSize: 28px;
   --mobileFontSize: 24px;
@@ -55,7 +55,7 @@ h2,
   @mixin fluid-text 36, 28;
 }
 
-h3,
+h3:not([class]),
 .h3 {
   --marginBottom: 24px;
   --tabletFontSize: 24px;
@@ -64,7 +64,7 @@ h3,
   @mixin fluid-text 28, 24;
 }
 
-h4,
+h4:not([class]),
 .h4 {
   --marginBottom: 24px;
   --tabletFontSize: 20px;
@@ -73,7 +73,7 @@ h4,
   @mixin fluid-text 24, 20;
 }
 
-h5,
+h5:not([class]),
 .h5 {
   --marginBottom: 24px;
   --tabletFontSize: 20px;
@@ -82,7 +82,7 @@ h5,
   font-size: 20px;
 }
 
-h6,
+h6:not([class]),
 .h6 {
   --marginBottom: 24px;
   --tabletFontSize: 16px;

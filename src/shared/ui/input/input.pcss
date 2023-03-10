@@ -6,6 +6,7 @@
   --inputBgColor: var(--color-light);
   --inputBorderColor: var(--color-accent);
   --inputBorderRadius: var(--border-radius-small);
+  --inputOutlineColor: transparent;
   --inputPlaceholderColor: var(--color-gray);
   --inputLabelColor: var(--color-accent);
 
@@ -14,6 +15,9 @@
   --inputFocusBgColor: var(--color-secondary);
   --inputFocusBorderColor: var(--color-light);
   --inputFocusLabelColor: var(--color-secondary);
+
+  --inputInvalidBorderColor: var(--color-error);
+  --inputIvalidOutlineColor: var(--color-error);
 
   display: flex;
   flex-direction: column-reverse;
@@ -30,6 +34,8 @@
     background-color: var(--inputBgColor);
     border: 2px solid var(--inputBorderColor);
     border-radius: var(--inputBorderRadius);
+    outline: 2px solid var(--inputOutlineColor);
+    outline-offset: 2px;
 
     &::placeholder {
       color: var(--inputPlaceholderColor);
@@ -51,6 +57,11 @@
       & + .input__label {
         color: var(--inputFocusLabelColor);
       }
+    }
+
+    &.is-invalid {
+      --inputBorderColor: var(--inputInvalidBorderColor);
+      --inputOutlineColor: var(--inputIvalidOutlineColor);
     }
   }
 

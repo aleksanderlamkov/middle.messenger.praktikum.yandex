@@ -1,12 +1,13 @@
-const render = (selector, markup) => {
-  const node = document.querySelector(selector)
+const render = (selector, node) => {
+  const rootNode = document.querySelector(selector)
 
-  if (!node) {
+  if (!rootNode) {
     console.error(`Node by selector '${selector}' is not found at current page!`)
     return
   }
 
-  node.innerHTML = markup
+  rootNode.innerHTML = ''
+  rootNode.appendChild(node)
 }
 
 export default render
