@@ -14,12 +14,12 @@ const App = () => {
     <div className="app">
       <Header className="app__header" />
       <main className="app__content container">
-        {/*<SignInPage />*/}
-        {/*<SignUpPage />*/}
-        {/*<ChatPage />*/}
+        {/* <SignInPage /> */}
+        {/* <SignUpPage /> */}
+        {/* <ChatPage /> */}
         <ProfilePage />
-        {/*<Error404Page />*/}
-        {/*<Error5XXPage />*/}
+        {/* <Error404Page /> */}
+        {/* <Error5XXPage /> */}
       </main>
       <Footer />
     </div>

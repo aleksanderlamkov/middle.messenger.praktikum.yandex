@@ -8,10 +8,7 @@ import { TChatPanel } from './types'
 import './ChatPanel.pcss'
 
 const ChatPanel = (props: TChatPanel) => {
-  const {
-    chatPreviewItems = [],
-    currentDialog,
-  } = props
+  const { chatPreviewItems = [], currentDialog } = props
 
   const {
     title,
@@ -59,9 +56,7 @@ const ChatPanel = (props: TChatPanel) => {
               </ul>
             )}
           </div>
-          <Fragment>
-            {new ChatForm({})}
-          </Fragment>
+          <Fragment>{new ChatForm({})}</Fragment>
         </div>
       </div>
     </div>

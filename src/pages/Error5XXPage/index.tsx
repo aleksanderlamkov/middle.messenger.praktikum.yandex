@@ -5,15 +5,15 @@ import PageHeader from '../../shared/ui/page-header'
 
 const Error5XXPage = () => {
   return (
-    <Fragment>
-      <PageHeader
-        title={(
-          <Fragment>
-            Ooops... Something went wrong :(<br/>We'll fix it soon!
-          </Fragment>
-        )}
-      />
-    </Fragment>
+    <PageHeader
+      title={
+        <Fragment>
+          Ooops... Something went wrong :(
+          <br />
+          We&apos;ll fix it soon!
+        </Fragment>
+      }
+    />
   )
 }
 

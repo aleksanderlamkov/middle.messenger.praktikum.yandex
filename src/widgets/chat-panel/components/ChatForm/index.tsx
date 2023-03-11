@@ -9,14 +9,14 @@ class ChatForm extends Block<TChatForm> {
     super(UI, {
       ...props,
       events: {
-        submit: (event: SubmitEvent) => this.handleSubmit(event)
-      }
+        submit: (event: SubmitEvent) => this.handleSubmit(event),
+      },
     })
 
     return this.render()
   }
 
-  send(formNode: HTMLFormElement) {
+  send = (formNode: HTMLFormElement) => {
     const formData = new FormData(formNode)
     const formDataFormatted = Object.fromEntries([...formData])
 

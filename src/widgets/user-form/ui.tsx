@@ -19,10 +19,12 @@ const UserForm = (props: TUserForm) => {
       <fieldset className="user-form__group">
         {fields.map((field) => (
           <Fragment>
-            {new Input({
-              className: 'user-form__input',
-              ...field,
-            })}
+            {
+              new Input({
+                className: 'user-form__input',
+                ...field,
+              })
+            }
           </Fragment>
         ))}
       </fieldset>

@@ -5,7 +5,6 @@ import cloneAttributes from '../cloneAttributes'
 
 type FC<TComponentProps> = (props: TComponentProps) => JSX.Element
 type TProps = Record<string, any>
-type TComponent = FC<TProps>
 
 class Block<TComponentProps> {
   private static EVENTS: Record<string, string> = {
@@ -15,9 +14,12 @@ class Block<TComponentProps> {
     FLOW_RENDER: 'flow:render',
   }
 
-  protected component: TComponent
+  protected component: FC<TComponentProps>
+
   protected _key: string | null = null
+
   protected props: TProps
+
   protected eventBus: EventBus
 
   constructor(Component: FC<TComponentProps>, props: TProps) {
@@ -54,7 +56,7 @@ class Block<TComponentProps> {
       set: (target, prop: string, value) => {
         const oldProp = target[prop]
 
-        target[prop] = value
+        target[prop] = value // eslint-disable-line no-param-reassign
         this.eventBus.emit(Block.EVENTS.FLOW_CDU, oldProp, target[prop])
 
         return true
@@ -69,11 +71,11 @@ class Block<TComponentProps> {
     this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
   }
 
-  _componentDidMount(): void {
+  _componentDidMount = (): void => {
     this.componentDidMount()
   }
 
-  componentDidMount(): void {}
+  componentDidMount = (): void => {}
 
   _componentDidUpdate(oldProp: any, newProp: any): void {
     const shouldUpdate = this.componentDidUpdate(oldProp, newProp)
@@ -83,11 +85,11 @@ class Block<TComponentProps> {
     }
   }
 
-  componentDidUpdate(oldProp: any, newProp: any): boolean {
+  componentDidUpdate = (oldProp: any, newProp: any): boolean => {
     return oldProp !== newProp
   }
 
-  dispatchComponentDidMount(): void {}
+  dispatchComponentDidMount = (): void => {}
 
   setProps(nextProps: Partial<TComponentProps>) {
     if (!nextProps) {
@@ -111,15 +113,17 @@ class Block<TComponentProps> {
 
   render(): any {
     const Component = this.component
-    // @ts-ignore
-    const ComponentWithProps = <Component {...this.props} /> as unknown as HTMLElement
-    const isMounting = !Boolean(this.key)
+    const ComponentWithProps = (
+      // @ts-ignore
+      <Component {...this.props} />
+    ) as unknown as HTMLElement
+    const isMounting = !this.key
 
     if (isMounting) {
       this.addEvents(ComponentWithProps)
       this.key = ComponentWithProps.dataset.key as string
     } else {
-      const oldNode = this.oldNode
+      const { oldNode } = this
       if (oldNode) {
         oldNode.innerHTML = ComponentWithProps.innerHTML
         cloneAttributes(oldNode, ComponentWithProps, ['data-key'])

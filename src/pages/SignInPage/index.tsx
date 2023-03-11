@@ -3,8 +3,7 @@ import jsxToDOM from 'jsxToDOM'
 import Fragment from '../../shared/ui/fragment'
 import PageHeader from '../../shared/ui/page-header'
 import UserForm from '../../widgets/user-form'
-import { TInput } from '../../shared/ui/input/types'
-import { VALIDATION_PATTERNS } from '../../shared/utils/validation'
+import { TInput, VALIDATION_PATTERNS } from '../../shared/ui/input/types.d'
 
 const title = 'Sign In'
 const fields: TInput[] = [
@@ -30,12 +29,14 @@ const SignInPage = () => {
   return (
     <Fragment>
       <PageHeader title={title} />
-      {new UserForm({
-        fields,
-        submitButtonLabel: title,
-        linkHref: '/',
-        linkLabel: 'Sign Up',
-      })}
+      {
+        new UserForm({
+          fields,
+          submitButtonLabel: title,
+          linkHref: '/',
+          linkLabel: 'Sign Up',
+        })
+      }
     </Fragment>
   )
 }

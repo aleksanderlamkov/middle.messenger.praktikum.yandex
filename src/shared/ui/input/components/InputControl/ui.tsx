@@ -3,12 +3,7 @@ import jsxToDOM from 'jsxToDOM'
 import { TInputControl } from './types'
 
 const InputControl = (props: TInputControl) => {
-  const {
-    name,
-    type = 'text',
-    placeholder = '',
-    value = '',
-  } = props
+  const { name, type = 'text', placeholder = '', value = '' } = props
 
   return (
     <input

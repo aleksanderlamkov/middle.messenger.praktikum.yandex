@@ -1,4 +1,7 @@
-import { TAvatarUploadControl, TAvatarUploadControlOnChange } from './components/AvatarUploadControl/types'
+import {
+  TAvatarUploadControl,
+  TAvatarUploadControlOnChange,
+} from './components/AvatarUploadControl/types'
 
 export type TAvatarUpload = Omit<TAvatarUploadControl, 'events'> & {
   className?: string

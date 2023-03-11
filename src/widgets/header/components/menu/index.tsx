@@ -11,10 +11,7 @@ const HeaderMenu = (props: THeaderMenu) => {
       <ul className="header__menu-list">
         {items.map(({ href, label }) => (
           <li className="header__menu-item">
-            <a
-              className="header__menu-link"
-              href={href}
-            >
+            <a className="header__menu-link" href={href}>
               {label}
             </a>
           </li>

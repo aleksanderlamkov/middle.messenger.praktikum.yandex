@@ -5,17 +5,10 @@ import { TButton } from './types'
 import './button.pcss'
 
 const Button = (props: TButton) => {
-  const {
-    className = '',
-    label = 'Click me',
-    type = 'button',
-  } = props
+  const { className = '', label = 'Click me', type = 'button' } = props
 
   return (
-    <button
-      className={classNames(className, 'button')}
-      type={type}
-    >
+    <button className={classNames(className, 'button')} type={type}>
       {label}
     </button>
   )

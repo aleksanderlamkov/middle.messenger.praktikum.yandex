@@ -2,9 +2,9 @@
 import jsxToDOM from 'jsxToDOM'
 import classNames from '../../utils/classNames'
 import AvatarUploadControl from './components/AvatarUploadControl'
+import Fragment from '../fragment'
 import { TAvatarUpload } from './types'
 import './avatar-upload.pcss'
-import Fragment from '../fragment'
 
 const AvatarUpload = (props: TAvatarUpload) => {
   const {
@@ -28,19 +28,18 @@ const AvatarUpload = (props: TAvatarUpload) => {
         loading="lazy"
       />
       <Fragment>
-        {new AvatarUploadControl({
-          id,
-          name,
-          events: { change: onChange },
-        })}
+        {
+          new AvatarUploadControl({
+            id,
+            name,
+            events: { change: onChange },
+          })
+        }
       </Fragment>
-      <label
-        className="avatar-upload__button button"
-        htmlFor={id}
-      >
+      <label className="avatar-upload__button button" htmlFor={id}>
         {buttonLabel}
       </label>
-      {error && <span className="avatar-upload__error" >{error}</span>}
+      {error && <span className="avatar-upload__error">{error}</span>}
     </div>
   )
 }

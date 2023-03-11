@@ -2,8 +2,7 @@
 import jsxToDOM from 'jsxToDOM'
 import Block from '../../utils/generic/block'
 import UI from './ui'
-import { TInput } from './types'
-import { validateValue, VALIDATION_PATTERNS } from '../../utils/validation'
+import { TInput, VALIDATION_PATTERNS } from './types'
 import { Event } from '../../types'
 
 const stateClasses: Record<string, string> = {
@@ -23,11 +22,25 @@ class Input extends Block<TInput> {
     return this.render()
   }
 
-  static manageValidation(input: HTMLInputElement, validationPatterns?: VALIDATION_PATTERNS[]): boolean {
+  static isValueValue = (
+    value: string,
+    patterns: VALIDATION_PATTERNS[]
+  ): boolean => {
+    return patterns.every((pattern) => {
+      const regExp = new RegExp(pattern)
+
+      return regExp.test(value)
+    })
+  }
+
+  static manageValidation(
+    input: HTMLInputElement,
+    validationPatterns?: VALIDATION_PATTERNS[]
+  ): boolean {
     const shouldValidate = validationPatterns && validationPatterns.length > 0
     if (!shouldValidate) return true
 
-    const isValid = validateValue(input.value, validationPatterns)
+    const isValid = Input.isValueValue(input.value, validationPatterns)
 
     input.classList.toggle(stateClasses.isInvalid, !isValid)
 

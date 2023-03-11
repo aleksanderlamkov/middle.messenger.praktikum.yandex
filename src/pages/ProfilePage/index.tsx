@@ -3,8 +3,7 @@ import jsxToDOM from 'jsxToDOM'
 import Fragment from '../../shared/ui/fragment'
 import PageHeader from '../../shared/ui/page-header'
 import ProfileForm from '../../widgets/profile-form'
-import { TInput } from '../../shared/ui/input/types'
-import { VALIDATION_PATTERNS } from '../../shared/utils/validation'
+import { TInput, VALIDATION_PATTERNS } from '../../shared/ui/input/types.d'
 
 const fields: TInput[] = [
   {

@@ -2,7 +2,7 @@ import getStringifyData from './getStringifyData'
 
 enum METHODS {
   GET = 'GET',
-  POST =  'POST',
+  POST = 'POST',
   PUT = 'PUT',
   DELETE = 'DELETE',
 }
@@ -10,8 +10,8 @@ enum METHODS {
 type TUrl = string
 
 type TOptions = {
-  method?: METHODS,
-  data?: any,
+  method?: METHODS
+  data?: any
   headers?: Record<string, string>
 }
 
@@ -58,9 +58,9 @@ class HTTPTransport {
       xhr.open(method, url)
       xhr.timeout = timeout
 
-      Object
-        .entries(headers)
-        .forEach(([key, value]) => xhr.setRequestHeader(key, value))
+      Object.entries(headers).forEach(([key, value]) =>
+        xhr.setRequestHeader(key, value)
+      )
 
       xhr.onload = () => resolve(xhr)
       xhr.onabort = reject
@@ -73,7 +73,7 @@ class HTTPTransport {
         xhr.send()
       }
     })
-  };
+  }
 }
 
 export default HTTPTransport

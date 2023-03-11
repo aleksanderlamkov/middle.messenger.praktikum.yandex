@@ -4,17 +4,9 @@ import { TFragment } from './types'
 import './fragment.pcss'
 
 const Fragment = (props: TFragment) => {
-  const {
-    children,
-  } = props
+  const { children } = props
 
-  return (
-    <div
-      className="fragment"
-    >
-      {children}
-    </div>
-  )
+  return <div className="fragment">{children}</div>
 }
 
 export default Fragment

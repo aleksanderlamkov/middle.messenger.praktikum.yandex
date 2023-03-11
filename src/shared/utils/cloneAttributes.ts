@@ -5,14 +5,13 @@ const cloneAttributes = (
 ): void => {
   const sourceAttributes = [...sourceElement.attributes]
 
-  sourceAttributes
-    .forEach(({ nodeName, nodeValue }) => {
-      const isExclude = excludeAttributes.includes(nodeName)
+  sourceAttributes.forEach(({ nodeName, nodeValue }) => {
+    const isExclude = excludeAttributes.includes(nodeName)
 
-      if (!isExclude) {
-        targetElement.setAttribute(nodeName, nodeValue || '')
-      }
-    })
+    if (!isExclude) {
+      targetElement.setAttribute(nodeName, nodeValue || '')
+    }
+  })
 }
 
 export default cloneAttributes

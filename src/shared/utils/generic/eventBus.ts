@@ -8,7 +8,7 @@ class EventBus {
     return this.listeners[event]
   }
 
-  logEventError(event: TEvent): never {
+  logEventError = (event: TEvent): never => {
     throw new Error(`Event '${event}' is not found`)
   }
 
@@ -25,11 +25,12 @@ class EventBus {
       this.logEventError(event)
     }
 
-    this.listeners[event] = this.listeners[event]
-      .filter((listener) => listener !== callback)
+    this.listeners[event] = this.listeners[event].filter(
+      (listener) => listener !== callback
+    )
   }
 
-  public emit(event: TEvent, ...args: TEvent[]) :void {
+  public emit(event: TEvent, ...args: TEvent[]): void {
     if (!this.hasEvent(event)) {
       this.logEventError(event)
     }

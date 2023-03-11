@@ -1,10 +1,10 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import { TInput } from './types'
 import classNames from '../../utils/classNames'
-import './input.pcss'
 import InputControl from './components/InputControl'
 import Fragment from '../fragment'
+import { TInput } from './types'
+import './input.pcss'
 
 const Input = (props: TInput) => {
   const {
@@ -21,22 +21,20 @@ const Input = (props: TInput) => {
   return (
     <label className={classNames(className, 'input')}>
       <Fragment>
-        {new InputControl({
-          name,
-          type,
-          placeholder,
-          value,
-          events: {
-            focus: onFocus,
-            blur: onBlur,
-          },
-        })}
+        {
+          new InputControl({
+            name,
+            type,
+            placeholder,
+            value,
+            events: {
+              focus: onFocus,
+              blur: onBlur,
+            },
+          })
+        }
       </Fragment>
-      {label && (
-        <span className="input__label">
-          {label}
-        </span>
-      )}
+      {label && <span className="input__label">{label}</span>}
     </label>
   )
 }
