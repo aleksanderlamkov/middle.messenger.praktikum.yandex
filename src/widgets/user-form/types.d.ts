@@ -1,4 +1,4 @@
-import { TInput } from '../../shared/ui/input/types'
+import { TInput } from '../../shared/ui/input/types.d'
 
 export type TUserForm = {
   fields: TInput[]
