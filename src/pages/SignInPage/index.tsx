@@ -1,9 +1,9 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Fragment from '../../shared/ui/fragment'
-import PageHeader from '../../shared/ui/page-header'
-import UserForm from '../../widgets/user-form'
-import { TInput, VALIDATION_PATTERNS } from '../../shared/ui/input/types.d'
+import Fragment from '../../shared/ui/Fragment'
+import PageHeader from '../../shared/ui/PageHeader'
+import UserForm from '../../widgets/UserForm'
+import { TInput, VALIDATION_PATTERNS } from '../../shared/ui/Input/types.d'
 
 const title = 'Sign In'
 const fields: TInput[] = [

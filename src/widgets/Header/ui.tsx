@@ -1,10 +1,10 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import classNames from '../../shared/utils/classNames'
-import Logo from '../../shared/ui/logo'
-import HeaderMenu from './components/menu'
+import Logo from '../../shared/ui/Logo'
+import HeaderMenu from './components/HeaderMenu'
 import { THeader } from './types'
-import './header.pcss'
+import './Header.pcss'
 
 const Header = (props: THeader) => {
   const { className } = props

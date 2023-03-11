@@ -2,9 +2,9 @@
 import jsxToDOM from 'jsxToDOM'
 import classNames from '../../utils/classNames'
 import InputControl from './components/InputControl'
-import Fragment from '../fragment'
+import Fragment from '../Fragment'
 import { TInput } from './types'
-import './input.pcss'
+import './Input.pcss'
 
 const Input = (props: TInput) => {
   const {

@@ -1,7 +1,7 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import { TFragment } from './types'
-import './fragment.pcss'
+import './Fragment.pcss'
 
 const Fragment = (props: TFragment) => {
   const { children } = props

@@ -2,9 +2,9 @@
 import jsxToDOM from 'jsxToDOM'
 import classNames from '../../utils/classNames'
 import AvatarUploadControl from './components/AvatarUploadControl'
-import Fragment from '../fragment'
+import Fragment from '../Fragment'
 import { TAvatarUpload } from './types'
-import './avatar-upload.pcss'
+import './AvatarUpload.pcss'
 
 const AvatarUpload = (props: TAvatarUpload) => {
   const {
@@ -18,7 +18,7 @@ const AvatarUpload = (props: TAvatarUpload) => {
   } = props
 
   return (
-    <div className={classNames(className, 'avatar-upload')}>
+    <div className={classNames(className, 'AvatarUpload')}>
       <img
         className="avatar-upload__image"
         src={imgSrc}

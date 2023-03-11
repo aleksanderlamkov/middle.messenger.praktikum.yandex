@@ -1,7 +1,7 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Header from '../widgets/header'
-import Footer from '../widgets/footer'
+import Header from '../widgets/Header'
+import Footer from '../widgets/Footer'
 // import SignInPage from '../pages/SignInPage'
 // import SignUpPage from '../pages/SignUpPage'
 // import ChatPage from '../pages/ChatPage'

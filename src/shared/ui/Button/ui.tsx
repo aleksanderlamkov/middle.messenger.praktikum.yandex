@@ -2,7 +2,7 @@
 import jsxToDOM from 'jsxToDOM'
 import classNames from '../../utils/classNames'
 import { TButton } from './types'
-import './button.pcss'
+import './Button.pcss'
 
 const Button = (props: TButton) => {
   const { className = '', label = 'Click me', type = 'button' } = props

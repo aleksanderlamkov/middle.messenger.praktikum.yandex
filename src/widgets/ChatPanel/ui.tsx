@@ -3,7 +3,7 @@ import jsxToDOM from 'jsxToDOM'
 import ChatPreviewCard from './components/ChatPreviewCard/ui'
 import ChatMessage from './components/ChatMessage/ui'
 import ChatForm from './components/ChatForm'
-import Fragment from '../../shared/ui/fragment'
+import Fragment from '../../shared/ui/Fragment'
 import { TChatPanel } from './types'
 import './ChatPanel.pcss'
 

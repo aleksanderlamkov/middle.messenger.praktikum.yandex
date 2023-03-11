@@ -1,6 +1,6 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import './footer.pcss'
+import './Footer.pcss'
 
 const Footer = () => {
   return (

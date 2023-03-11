@@ -1,5 +1,5 @@
-import { TInput } from '../ui/input/types.d'
-import Input from '../ui/input'
+import { TInput } from '../ui/Input/types.d'
+import Input from '../ui/Input'
 
 const validateForm = (form: HTMLFormElement, fields: TInput[]): boolean => {
   const requiredFields = fields.filter(({ validationPatterns }) => {

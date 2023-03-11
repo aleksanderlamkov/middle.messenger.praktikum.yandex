@@ -2,7 +2,7 @@
 import jsxToDOM from 'jsxToDOM'
 import classNames from '../../utils/classNames'
 import { TLogo } from './types'
-import './logo.pcss'
+import './Logo.pcss'
 
 const Logo = (props: TLogo) => {
   const {
@@ -14,7 +14,7 @@ const Logo = (props: TLogo) => {
 
   return (
     <a
-      className={classNames(className, 'logo')}
+      className={classNames(className, 'Logo')}
       href={href}
       aria-label={ariaLabel}
     >
