@@ -11,6 +11,8 @@
   }
 
   &__button {
+    --iconFilter: initial;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,15 +22,17 @@
 
     &:hover:not([disabled]) {
       @media (--hoverable) {
-        .chat-form__button-icon {
-          filter: hue-rotate(250deg);
-        }
+        --iconFilter: hue-rotate(250deg);
       }
     }
 
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
+    }
+
+    &-icon {
+      filter: var(--iconFilter);
     }
   }
 }

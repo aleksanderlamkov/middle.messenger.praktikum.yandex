@@ -1,6 +1,8 @@
 @import "../../styles/mixins.pcss";
 
 .avatar-upload {
+  --avatarUploadImageBorderColor: transparent;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,9 +13,7 @@
   }
 
   &.is-invalid {
-    .avatar-upload__image {
-      border-color: var(--color-error);
-    }
+    --avatarUploadImageBorderColor: var(--color-error);
   }
 
   &__image {
@@ -21,7 +21,7 @@
 
     @mixin square var(--size);
 
-    border: 5px solid transparent;
+    border: 5px solid var(--avatarUploadImageBorderColor);
     border-radius: 50%;
     object-fit: cover;
 

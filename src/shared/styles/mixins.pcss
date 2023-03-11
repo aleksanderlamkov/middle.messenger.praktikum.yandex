@@ -99,7 +99,10 @@
   }
 }
 
-@define-mixin custom-scrollbar $scrollBackgroundColor: var(--color-accent), $thumbColor: var(--color-secondary), $thumbBorderRadius: 0px {
+@define-mixin custom-scrollbar
+  $scrollBackgroundColor: var(--color-accent),
+  $thumbColor: var(--color-secondary),
+  $thumbBorderRadius: 0px { /* stylelint-disable-line */
   html:not(.safari):not(.is-mobile-device) & {
     scrollbar-color: $thumbColor $scrollBackgroundColor;
     scrollbar-width: thin;

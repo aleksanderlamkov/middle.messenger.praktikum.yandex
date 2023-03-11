@@ -3,6 +3,7 @@
 .chat-message {
   --commaSize: 50px;
   --commaOffset: calc(var(--commaSize) * 0.4);
+  --chatMessageBgColor: var(--color-gray);
 
   position: relative;
   max-width: 415px;
@@ -20,6 +21,8 @@
   }
 
   &--user-reply {
+    --chatMessageBgColor: var(--color-secondary);
+
     margin-left: auto;
     padding-right: var(--commaOffset);
 
@@ -28,10 +31,6 @@
       right: 0;
       background-image: url("../../../../../public/icons/comma-peach.svg");
     }
-
-    .chat-message__inner {
-      background-color: var(--color-secondary);
-    }
   }
 
   &__inner {
@@ -39,7 +38,7 @@
     z-index: 1;
     padding: 15px 20px;
     color: var(--color-dark);
-    background-color: var(--color-gray);
+    background-color: var(--chatMessageBgColor);
     border-radius: var(--border-radius);
   }
 
