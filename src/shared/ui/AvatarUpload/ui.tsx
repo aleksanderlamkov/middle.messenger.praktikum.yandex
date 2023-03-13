@@ -18,7 +18,7 @@ const AvatarUpload = (props: TAvatarUpload) => {
   } = props
 
   return (
-    <div className={classNames(className, 'AvatarUpload')}>
+    <div className={classNames(className, 'avatar-upload')}>
       <img
         className="avatar-upload__image"
         src={imgSrc}

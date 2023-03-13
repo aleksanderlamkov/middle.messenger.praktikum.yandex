@@ -2,7 +2,7 @@ import { THeaderMenuItem } from './types'
 
 const defaultMenuItems: THeaderMenuItem[] = [
   {
-    href: '/chats',
+    href: '/',
     label: 'Chats',
   },
   {

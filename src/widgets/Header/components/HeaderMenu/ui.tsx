@@ -2,6 +2,8 @@
 import jsxToDOM from 'jsxToDOM'
 import defaultMenuItems from './defaultMenuItems'
 import { THeaderMenu } from './types'
+import Fragment from '../../../../shared/ui/Fragment'
+import RouterLink from '../../../../shared/ui/RouterLink'
 
 const HeaderMenu = (props: THeaderMenu) => {
   const { items = defaultMenuItems } = props
@@ -11,9 +13,13 @@ const HeaderMenu = (props: THeaderMenu) => {
       <ul className="header__menu-list">
         {items.map(({ href, label }) => (
           <li className="header__menu-item">
-            <a className="header__menu-link" href={href}>
-              {label}
-            </a>
+            <Fragment>
+              {new RouterLink({
+                className: 'header__menu-link',
+                href,
+                content: label
+              })}
+            </Fragment>
           </li>
         ))}
       </ul>

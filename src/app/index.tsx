@@ -2,24 +2,17 @@
 import jsxToDOM from 'jsxToDOM'
 import Header from '../widgets/Header'
 import Footer from '../widgets/Footer'
-// import SignInPage from '../pages/SignInPage'
-// import SignUpPage from '../pages/SignUpPage'
-// import ChatPage from '../pages/ChatPage'
-import ProfilePage from '../pages/ProfilePage'
-// import Error404Page from '../pages/Error404Page'
-// import Error5XXPage from '../pages/Error5XXPage'
+import Router from '../pages'
+import Fragment from '../shared/ui/Fragment'
 
 const App = () => {
   return (
     <div className="app">
       <Header className="app__header" />
       <main className="app__content container">
-        {/* <SignInPage /> */}
-        {/* <SignUpPage /> */}
-        {/* <ChatPage /> */}
-        <ProfilePage />
-        {/* <Error404Page /> */}
-        {/* <Error5XXPage /> */}
+        <Fragment>
+          {new Router({})}
+        </Fragment>
       </main>
       <Footer />
     </div>
