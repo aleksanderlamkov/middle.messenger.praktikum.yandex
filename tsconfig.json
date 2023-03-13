@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ESNext",
+    "declaration": false,
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "jsx": "react",
+    "jsxFactory": "jsxToDOM",
+    "paths": {
+      "jsxToDOM": ["./src/shared/utils/jsxToDOM"],
+      "pages": ["./src/pages"],
+      "widgets/*": ["./src/widgets/*"],
+      "shared/*": ["./src/shared/*"]
+    }
+  }
+}
