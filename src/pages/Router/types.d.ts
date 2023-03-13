@@ -4,5 +4,7 @@ export type TPage = {
 }
 
 export type TRouter = {
+  pages: TPage[]
+  errorPage: () => JSX.Element
   currentPath?: string
 }

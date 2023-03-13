@@ -74,7 +74,7 @@ const ProfilePage = () => {
   return (
     <Fragment>
       <PageHeader title="Profile settings" />
-      {new ProfileForm({ fields })}
+      <Fragment>{new ProfileForm({ fields })}</Fragment>
     </Fragment>
   )
 }

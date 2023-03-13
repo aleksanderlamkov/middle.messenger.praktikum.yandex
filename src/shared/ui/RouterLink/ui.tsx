@@ -1,12 +1,19 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
+import classNames from 'shared/utils/classNames'
 import { TRouterLink } from './types'
 
 const RouterLink = (props: TRouterLink) => {
-  const { className = '', href, ariaLabel, content } = props
+  const { className = '', href, ariaLabel, content, isActive } = props
 
   return (
-    <a className={className} href={href} aria-label={ariaLabel}>
+    <a
+      className={classNames(className, {
+        'is-active': isActive,
+      })}
+      href={href}
+      aria-label={ariaLabel}
+    >
       {content}
     </a>
   )

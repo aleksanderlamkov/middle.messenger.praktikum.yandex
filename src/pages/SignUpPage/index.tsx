@@ -62,14 +62,16 @@ const SignUpPage = () => {
   return (
     <Fragment>
       <PageHeader title={title} />
-      {
-        new UserForm({
-          fields,
-          submitButtonLabel: title,
-          linkHref: '/',
-          linkLabel: 'Sign In',
-        })
-      }
+      <Fragment>
+        {
+          new UserForm({
+            fields,
+            submitButtonLabel: title,
+            linkHref: '/',
+            linkLabel: 'Sign In',
+          })
+        }
+      </Fragment>
     </Fragment>
   )
 }

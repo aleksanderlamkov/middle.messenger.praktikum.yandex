@@ -13,10 +13,13 @@ class RouterLink extends Block<TRouterLink> {
   constructor(props: TRouterLink) {
     super(UI, {
       ...props,
+      isActive: location.pathname === props.href,
       events: {
         click: (event: Event) => this.handleClick(event),
       },
     })
+
+    this.bindEvents()
 
     return this.render()
   }
@@ -28,6 +31,18 @@ class RouterLink extends Block<TRouterLink> {
 
     history.pushState(null, '', href)
     bubble(routerEvents.pathChange, { href })
+  }
+
+  handlePathChange(event: any) {
+    const { pathname } = new URL(event.detail.href)
+
+    this.setProps({ isActive: pathname === this.props.href })
+  }
+
+  bindEvents() {
+    document.addEventListener(routerEvents.pathChange, (event) => {
+      this.handlePathChange(event)
+    })
   }
 }
 
