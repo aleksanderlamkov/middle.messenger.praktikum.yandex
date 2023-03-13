@@ -13,10 +13,8 @@ class Input extends Block<TInput> {
   constructor(props: TInput) {
     super(UI, {
       ...props,
-      events: {
-        focus: (event: Event<HTMLInputElement>) => this.handleFocus(event),
-        blur: (event: Event<HTMLInputElement>) => this.handleBlur(event),
-      },
+      onFocus: (event: Event<HTMLInputElement>) => this.handleFocus(event),
+      onBlur: (event: Event<HTMLInputElement>) => this.handleBlur(event),
     })
 
     return this.render()
