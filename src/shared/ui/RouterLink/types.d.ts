@@ -3,6 +3,7 @@ export type TRouterLink = {
   href: string
   content: any
   ariaLabel?: string
+  isActive?: boolean
   events?: {
     click: (event: Event) => void
   }

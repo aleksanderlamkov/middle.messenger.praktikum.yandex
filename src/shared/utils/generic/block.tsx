@@ -112,12 +112,13 @@ class Block<TComponentProps> {
   }
 
   render(): any {
+    const isMounting = !this.key
     const Component = this.component
+
     const ComponentWithProps = (
       // @ts-ignore
       <Component {...this.props} />
     ) as unknown as HTMLElement
-    const isMounting = !this.key
 
     if (isMounting) {
       this.addEvents(ComponentWithProps)
@@ -125,8 +126,9 @@ class Block<TComponentProps> {
     } else {
       const { oldNode } = this
       if (oldNode) {
-        oldNode.innerHTML = ComponentWithProps.innerHTML
+        oldNode.innerHTML = ''
         cloneAttributes(oldNode, ComponentWithProps, ['data-key'])
+        oldNode.append(ComponentWithProps)
       }
     }
 
