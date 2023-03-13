@@ -1,7 +1,7 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import classNames from '../../shared/utils/classNames'
-import Logo from '../../shared/ui/Logo'
+import classNames from 'shared/utils/classNames'
+import Logo from 'shared/ui/Logo'
 import HeaderMenu from './components/HeaderMenu'
 import { THeader } from './types'
 import './Header.pcss'

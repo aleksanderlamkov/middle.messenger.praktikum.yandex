@@ -1,7 +1,7 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Block from '../../shared/utils/generic/block'
-import validateForm from '../../shared/utils/validateForm'
+import Block from 'shared/utils/generic/block'
+import validateForm from 'shared/utils/validateForm'
 import UI from './ui'
 import { TProfileForm } from './types'
 

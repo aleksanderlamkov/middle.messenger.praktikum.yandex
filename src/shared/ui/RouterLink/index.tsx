@@ -1,7 +1,7 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Block from '../../utils/generic/block'
-import bubble from '../../utils/bubble'
+import Block from 'shared/utils/generic/block'
+import bubble from 'shared/utils/bubble'
 import UI from './ui'
 import { TRouterLink } from './types'
 

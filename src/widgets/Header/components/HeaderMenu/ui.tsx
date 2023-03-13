@@ -2,8 +2,8 @@
 import jsxToDOM from 'jsxToDOM'
 import defaultMenuItems from './defaultMenuItems'
 import { THeaderMenu } from './types'
-import Fragment from '../../../../shared/ui/Fragment'
-import RouterLink from '../../../../shared/ui/RouterLink'
+import Fragment from 'shared/ui/Fragment'
+import RouterLink from 'shared/ui/RouterLink'
 
 const HeaderMenu = (props: THeaderMenu) => {
   const { items = defaultMenuItems } = props

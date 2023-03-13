@@ -1,10 +1,10 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Input from '../../shared/ui/Input'
-import Button from '../../shared/ui/Button'
+import Input from 'shared/ui/Input'
+import Button from 'shared/ui/Button'
 import { TUserForm } from './types'
 import './UserForm.pcss'
-import Fragment from '../../shared/ui/Fragment'
+import Fragment from 'shared/ui/Fragment'
 
 const UserForm = (props: TUserForm) => {
   const {

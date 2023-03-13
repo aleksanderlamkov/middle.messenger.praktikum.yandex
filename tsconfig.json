@@ -12,7 +12,10 @@
     "jsx": "react",
     "jsxFactory": "jsxToDOM",
     "paths": {
-      "jsxToDOM": ["./src/shared/utils/jsxToDOM"]
+      "jsxToDOM": ["./src/shared/utils/jsxToDOM"],
+      "pages/*": ["./src/pages/*"],
+      "widgets/*": ["./src/widgets/*"],
+      "shared/*": ["./src/shared/*"]
     }
   }
 }

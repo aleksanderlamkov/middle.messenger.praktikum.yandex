@@ -1,6 +1,6 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import classNames from '../../utils/classNames'
+import classNames from 'shared/utils/classNames'
 import { TPageHeader } from './types'
 import './PageHeader.pcss'
 

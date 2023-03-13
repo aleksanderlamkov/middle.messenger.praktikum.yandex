@@ -1,9 +1,9 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import AvatarUpload from '../../shared/ui/AvatarUpload'
-import Input from '../../shared/ui/Input'
-import Button from '../../shared/ui/Button'
-import Fragment from '../../shared/ui/Fragment'
+import AvatarUpload from 'shared/ui/AvatarUpload'
+import Input from 'shared/ui/Input'
+import Button from 'shared/ui/Button'
+import Fragment from 'shared/ui/Fragment'
 import { TProfileForm } from './types'
 import './ProfileForm.pcss'
 

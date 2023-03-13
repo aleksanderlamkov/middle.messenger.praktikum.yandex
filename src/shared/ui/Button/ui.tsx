@@ -1,6 +1,6 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import classNames from '../../utils/classNames'
+import classNames from 'shared/utils/classNames'
 import { TButton } from './types'
 import './Button.pcss'
 

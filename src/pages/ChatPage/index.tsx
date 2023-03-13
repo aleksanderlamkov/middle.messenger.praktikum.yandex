@@ -1,9 +1,9 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Fragment from '../../shared/ui/Fragment'
-import PageHeader from '../../shared/ui/PageHeader'
-import ChatPanel from '../../widgets/ChatPanel'
-import { TChatPanel } from '../../widgets/ChatPanel/types'
+import Fragment from 'shared/ui/Fragment'
+import PageHeader from 'shared/ui/PageHeader'
+import ChatPanel from 'widgets/ChatPanel'
+import { TChatPanel } from 'widgets/ChatPanel/types'
 
 const chatProps: TChatPanel = {
   chatPreviewItems: [

@@ -1,6 +1,6 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Block from '../../../../utils/generic/block'
+import Block from 'shared/utils/generic/block'
 import UI from './ui'
 import { TAvatarUploadControl } from './types'
 

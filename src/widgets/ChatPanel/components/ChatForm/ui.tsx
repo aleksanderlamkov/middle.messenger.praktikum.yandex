@@ -1,8 +1,8 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Input from '../../../../shared/ui/Input'
-import { VALIDATION_PATTERNS } from '../../../../shared/ui/Input/types.d'
-import Fragment from '../../../../shared/ui/Fragment'
+import Input from 'shared/ui/Input'
+import { VALIDATION_PATTERNS } from 'shared/ui/Input/types.d'
+import Fragment from 'shared/ui/Fragment'
 import './ChatForm.pcss'
 
 const ChatForm = () => {

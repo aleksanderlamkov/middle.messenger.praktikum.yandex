@@ -1,7 +1,7 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import EventBus from './eventBus'
-import cloneAttributes from '../cloneAttributes'
+import cloneAttributes from 'shared/utils/cloneAttributes'
 
 type FC<TComponentProps> = (props: TComponentProps) => JSX.Element
 type TProps = Record<string, any>

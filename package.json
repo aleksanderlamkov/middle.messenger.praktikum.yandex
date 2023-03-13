@@ -44,7 +44,10 @@
     "typescript": "^4.9.5"
   },
   "alias": {
-    "jsxToDOM": "./src/shared/utils/jsxToDOM"
+    "jsxToDOM": "./src/shared/utils/jsxToDOM",
+    "pages": "./src/pages",
+    "widgets": "./src/widgets",
+    "shared": "./src/shared"
   },
   "eslintConfig": {
     "extends": [

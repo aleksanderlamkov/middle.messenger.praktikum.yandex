@@ -1,9 +1,9 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Header from '../widgets/Header'
-import Footer from '../widgets/Footer'
-import Router from '../pages'
-import Fragment from '../shared/ui/Fragment'
+import Header from 'widgets/Header'
+import Footer from 'widgets/Footer'
+import Router from 'pages'
+import Fragment from 'shared/ui/Fragment'
 
 const App = () => {
   return (

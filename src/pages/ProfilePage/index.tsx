@@ -1,9 +1,9 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import Fragment from '../../shared/ui/Fragment'
-import PageHeader from '../../shared/ui/PageHeader'
-import ProfileForm from '../../widgets/ProfileForm'
-import { TInput, VALIDATION_PATTERNS } from '../../shared/ui/Input/types.d'
+import Fragment from 'shared/ui/Fragment'
+import PageHeader from 'shared/ui/PageHeader'
+import ProfileForm from 'widgets/ProfileForm'
+import { TInput, VALIDATION_PATTERNS } from 'shared/ui/Input/types.d'
 
 const fields: TInput[] = [
   {

@@ -1,8 +1,8 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import classNames from '../../utils/classNames'
+import classNames from 'shared/utils/classNames'
 import AvatarUploadControl from './components/AvatarUploadControl'
-import Fragment from '../Fragment'
+import Fragment from 'shared/ui/Fragment'
 import { TAvatarUpload } from './types'
 import './AvatarUpload.pcss'
 

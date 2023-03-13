@@ -1,6 +1,6 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
-import classNames from '../../../../shared/utils/classNames'
+import classNames from 'shared/utils/classNames'
 import { TChatMessage } from './types'
 import './ChatMessage.pcss'
 
