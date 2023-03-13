@@ -28,7 +28,8 @@ const pages: TPage[] = [
 
 const Router = (props: TRouter) => {
   const { currentPath } = props
-  const Page = pages.find(({ path }) => path === currentPath)?.element ?? Error404Page
+  const Page =
+    pages.find(({ path }) => path === currentPath)?.element ?? Error404Page
 
   return Page()
 }

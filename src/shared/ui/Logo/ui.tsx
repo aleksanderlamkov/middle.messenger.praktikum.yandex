@@ -16,19 +16,21 @@ const Logo = (props: TLogo) => {
 
   return (
     <Fragment>
-      {new RouterLink({
-        className: classNames(className, 'logo'),
-        href,
-        ariaLabel,
-        content: (
-          <img
-            className="logo__image"
-            src="/images/logo.svg"
-            alt={title}
-            title={title}
-          />
-        )
-      })}
+      {
+        new RouterLink({
+          className: classNames(className, 'logo'),
+          href,
+          ariaLabel,
+          content: (
+            <img
+              className="logo__image"
+              src="/images/logo.svg"
+              alt={title}
+              title={title}
+            />
+          ),
+        })
+      }
     </Fragment>
   )
 }

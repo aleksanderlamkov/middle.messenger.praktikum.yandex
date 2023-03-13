@@ -14,11 +14,13 @@ const HeaderMenu = (props: THeaderMenu) => {
         {items.map(({ href, label }) => (
           <li className="header__menu-item">
             <Fragment>
-              {new RouterLink({
-                className: 'header__menu-link',
-                href,
-                content: label
-              })}
+              {
+                new RouterLink({
+                  className: 'header__menu-link',
+                  href,
+                  content: label,
+                })
+              }
             </Fragment>
           </li>
         ))}

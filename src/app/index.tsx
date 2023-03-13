@@ -10,9 +10,7 @@ const App = () => {
     <div className="app">
       <Header className="app__header" />
       <main className="app__content container">
-        <Fragment>
-          {new Router({})}
-        </Fragment>
+        <Fragment>{new Router({})}</Fragment>
       </main>
       <Footer />
     </div>

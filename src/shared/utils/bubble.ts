@@ -1,7 +1,7 @@
-const bubble = <TDetail extends unknown> (
-  target: HTMLElement = document.documentElement,
+const bubble = <TDetail extends unknown>(
   name: string,
   detail: TDetail,
+  target: HTMLElement = document.documentElement
 ): void => {
   const event = new CustomEvent(name, {
     detail,

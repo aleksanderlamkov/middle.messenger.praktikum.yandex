@@ -24,7 +24,9 @@ class Router extends Block<TRouter> {
   }
 
   bindEvents() {
-    document.addEventListener(routerEvents.pathChange, (event) => this.handlePathChange(event))
+    document.addEventListener(routerEvents.pathChange, (event) => {
+      this.handlePathChange(event)
+    })
   }
 }
 

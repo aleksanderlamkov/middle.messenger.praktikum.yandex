@@ -79,7 +79,8 @@
           "varsIgnorePattern": "^jsxToDOM"
         }
       ],
-      "no-constructor-return": "off"
+      "no-constructor-return": "off",
+      "no-restricted-globals": "off"
     }
   },
   "prettier": "@atlascommunity/prettier-config"

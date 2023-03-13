@@ -6,7 +6,7 @@ import UI from './ui'
 import { TRouterLink } from './types'
 
 export const routerEvents = {
-  pathChange: 'router::pathChange'
+  pathChange: 'router::pathChange',
 }
 
 class RouterLink extends Block<TRouterLink> {
@@ -21,13 +21,13 @@ class RouterLink extends Block<TRouterLink> {
     return this.render()
   }
 
-  handleClick(event: Event) {
+  handleClick = (event: Event) => {
     event.preventDefault()
 
     const { href } = event.currentTarget as HTMLLinkElement
 
     history.pushState(null, '', href)
-    bubble(document.documentElement, routerEvents.pathChange, { href })
+    bubble(routerEvents.pathChange, { href })
   }
 }
 
