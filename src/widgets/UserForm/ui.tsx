@@ -2,9 +2,9 @@
 import jsxToDOM from 'jsxToDOM'
 import Input from 'shared/ui/Input'
 import Button from 'shared/ui/Button'
+import Fragment from 'shared/ui/Fragment'
 import { TUserForm } from './types'
 import './UserForm.pcss'
-import Fragment from 'shared/ui/Fragment'
 
 const UserForm = (props: TUserForm) => {
   const {

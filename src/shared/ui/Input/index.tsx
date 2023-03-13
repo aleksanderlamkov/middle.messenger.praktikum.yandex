@@ -1,9 +1,9 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Block from 'shared/utils/generic/block'
+import { Event } from 'shared/types'
 import UI from './ui'
 import { TInput, VALIDATION_PATTERNS } from './types'
-import { Event } from 'shared/types'
 
 const stateClasses: Record<string, string> = {
   isInvalid: 'is-invalid',

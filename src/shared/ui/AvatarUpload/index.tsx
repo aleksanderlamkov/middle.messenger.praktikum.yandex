@@ -1,9 +1,9 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Block from 'shared/utils/generic/block'
+import { Event } from 'shared/types'
 import UI from './ui'
 import { TAvatarUpload } from './types'
-import { Event } from 'shared/types'
 
 class AvatarUpload extends Block<TAvatarUpload> {
   private validImageExtensions = ['png', 'jpg', 'jpeg']

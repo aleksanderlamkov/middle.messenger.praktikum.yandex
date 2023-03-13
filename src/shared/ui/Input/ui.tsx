@@ -1,8 +1,8 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import classNames from 'shared/utils/classNames'
-import InputControl from './components/InputControl'
 import Fragment from 'shared/ui/Fragment'
+import InputControl from './components/InputControl'
 import { TInput } from './types'
 import './Input.pcss'
 

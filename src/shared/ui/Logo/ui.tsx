@@ -1,10 +1,10 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import classNames from 'shared/utils/classNames'
-import { TLogo } from './types'
-import './Logo.pcss'
 import Fragment from 'shared/ui/Fragment'
 import RouterLink from 'shared/ui/RouterLink'
+import { TLogo } from './types'
+import './Logo.pcss'
 
 const Logo = (props: TLogo) => {
   const {

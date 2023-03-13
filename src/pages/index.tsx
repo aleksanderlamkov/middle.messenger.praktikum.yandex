@@ -1,8 +1,8 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Block from 'shared/utils/generic/block'
-import UI from './ui'
 import { routerEvents } from 'shared/ui/RouterLink'
+import UI from './ui'
 import { TRouter } from './types'
 
 class Router extends Block<TRouter> {
