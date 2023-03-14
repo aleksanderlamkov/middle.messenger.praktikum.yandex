@@ -1,0 +1,78 @@
+@import "../../../../shared/styles/mixins.pcss";
+
+.chat-preview-card {
+  @mixin transition;
+
+  display: flex;
+  column-gap: 10px;
+  width: 100%;
+  max-width: 416px;
+  padding: 20px 15px;
+  background-color: var(--color-dark);
+  border: var(--border-light);
+  border-radius: var(--border-radius-small);
+  box-shadow: var(--box-shadow);
+  user-select: none;
+
+  &:hover,
+  &.is-active {
+    border-color: var(--color-secondary);
+  }
+
+  &__avatar {
+    --size: 50px;
+
+    @mixin square var(--size);
+
+    border-radius: 50%;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &__body,
+  &__date {
+    font-size: 14px;
+  }
+
+  &__date,
+  &__message {
+    color: var(--color-gray);
+  }
+
+  &__info {
+    display: flex;
+    column-gap: 5px;
+  }
+
+  &__message {
+    @mixin line-clamp 2;
+  }
+
+  &__unread-indicator {
+    --size: 30px;
+
+    @mixin flex-center;
+    @mixin square var(--size);
+
+    flex-shrink: 0;
+    color: var(--color-light);
+    background-color: var(--color-accent);
+    border-radius: 50%;
+  }
+}

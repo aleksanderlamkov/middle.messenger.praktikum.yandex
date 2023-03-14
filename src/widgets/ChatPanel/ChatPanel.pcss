@@ -1,0 +1,80 @@
+@import "../../shared/styles/mixins.pcss";
+
+.chat-panel {
+  display: flex;
+  column-gap: 40px;
+
+  &__dialogs,
+  &__messages {
+    overflow-y: auto;
+  }
+
+  &__dialogs,
+  &__current-dialog {
+    padding: 15px;
+    background-color: var(--color-dark);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  &__dialogs {
+    flex-shrink: 0;
+    max-height: 65vh;
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      list-style: none;
+    }
+  }
+
+  &__current-dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 20px;
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: 25px;
+    padding: 20px;
+    background-color: var(--color-dark);
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
+  &__avatar {
+    --size: 50px;
+
+    @mixin square var(--size);
+
+    border-radius: 50%;
+  }
+
+  &__title {
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  &__messages {
+    max-height: 50vh;
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+}

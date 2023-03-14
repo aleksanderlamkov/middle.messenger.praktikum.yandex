@@ -1,0 +1,40 @@
+@import "../../shared/styles/mixins.pcss";
+
+.header {
+  padding-block: 16px;
+  box-shadow: var(--box-shadow);
+
+  @media (--mobile) {
+    padding-block: 8px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 30px;
+  }
+
+  &__menu {
+    &-list {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px 30px;
+      list-style: none;
+
+      @media (--mobile) {
+        flex-wrap: wrap;
+        column-gap: 15px;
+      }
+    }
+
+    &-link {
+      text-transform: uppercase;
+      text-decoration: none;
+
+      &.is-active {
+        color: var(--color-secondary);
+      }
+    }
+  }
+}

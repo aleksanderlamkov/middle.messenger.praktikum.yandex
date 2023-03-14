@@ -1,21 +1,10 @@
+// @ts-ignore
+// import jsxToDOM from 'jsxToDOM'
 import render from './shared/utils/render'
-import { AvatarUploadCollection } from './shared/ui/avatar-upload/avatar-upload'
-import Routes from './pages/routes'
+import App from './app'
 import './app/styles'
-
-const initModules = () => {
-  new AvatarUploadCollection()
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.classList.add('is-dom-ready')
-
-  import('./app/template.ejs').then((markup) => {
-    render('#root', markup)
-
-    new Routes((markup) => {
-      render('#app-content', markup)
-      initModules()
-    })
-  })
+  render('#root', App())
 })

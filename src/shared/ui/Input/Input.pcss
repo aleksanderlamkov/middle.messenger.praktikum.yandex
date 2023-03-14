@@ -1,0 +1,90 @@
+@import "../../styles/mixins.pcss";
+
+.input {
+  --inputWidth: initial;
+  --inputTextColor: var(--color-dark);
+  --inputBgColor: var(--color-light);
+  --inputBorderColor: var(--color-accent);
+  --inputBorderRadius: var(--border-radius-small);
+  --inputOutlineColor: transparent;
+  --inputPlaceholderColor: var(--color-gray);
+  --inputLabelColor: var(--color-accent);
+
+  --inputHoverBorderColor: var(--color-secondary);
+
+  --inputFocusBgColor: var(--color-secondary);
+  --inputFocusBorderColor: var(--color-light);
+  --inputFocusLabelColor: var(--color-secondary);
+
+  --inputInvalidBorderColor: var(--color-error);
+  --inputIvalidOutlineColor: var(--color-error);
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  align-items: flex-start;
+  row-gap: 5px;
+  width: 100%;
+  max-width: var(--inputWidth);
+
+  &__control {
+    width: 100%;
+    height: var(--input-height);
+    padding-inline: var(--input-padding-x);
+    color: var(--inputTextColor);
+    background-color: var(--inputBgColor);
+    border: 2px solid var(--inputBorderColor);
+    border-radius: var(--inputBorderRadius);
+    outline: 2px solid var(--inputOutlineColor);
+    outline-offset: 2px;
+
+    &::placeholder {
+      color: var(--inputPlaceholderColor);
+    }
+
+    @media (--hoverable) {
+      &:hover {
+        border-color: var(--inputHoverBorderColor);
+      }
+    }
+
+    &:focus {
+      --inputPlaceholderColor: var(--color-light);
+
+      background-color: var(--inputFocusBgColor);
+      border-color: var(--inputFocusBorderColor);
+      outline: none;
+
+      & + .input__label { /* stylelint-disable-line */
+        color: var(--inputFocusLabelColor);
+      }
+    }
+
+    &.is-invalid {
+      --inputBorderColor: var(--inputInvalidBorderColor);
+      --inputOutlineColor: var(--inputIvalidOutlineColor);
+    }
+  }
+
+  &__label {
+    color: var(--inputLabelColor);
+  }
+
+  &__errors {
+    order: -1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    font-size: 0.8em;
+    line-height: 1.2;
+    color: var(--color-error);
+
+    &:empty {
+      display: none;
+    }
+
+    &:not(:empty):not(:first-child) {
+      margin-top: 5px;
+    }
+  }
+}
