@@ -1,7 +1,7 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
+import patterns from 'shared/utils/validation/patterns'
 import Input from 'shared/ui/Input'
-import { VALIDATION_PATTERNS } from 'shared/ui/Input/types.d'
 import Fragment from 'shared/ui/Fragment'
 import './ChatForm.pcss'
 
@@ -14,7 +14,7 @@ const ChatForm = () => {
             className: 'chat-form__input',
             name: 'user-message',
             placeholder: 'Message...',
-            validationPatterns: [VALIDATION_PATTERNS.NOT_EMPTY],
+            patterns: [patterns.notEmpty],
           })
         }
       </Fragment>

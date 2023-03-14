@@ -35,6 +35,7 @@ const Input = (props: TInput) => {
         }
       </Fragment>
       {label && <span className="input__label">{label}</span>}
+      <span className="input__errors" />
     </label>
   )
 }

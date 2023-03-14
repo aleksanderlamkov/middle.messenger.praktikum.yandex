@@ -35,3 +35,4 @@
 - `yarn build` — сборка стабильной версии
 - `yarn start` — запуск express-сервера и parcel
 - `yarn run dev` — запуск express-сервера и parcel в dev-режиме
+- `yarn run lint` — запуск линтеров
