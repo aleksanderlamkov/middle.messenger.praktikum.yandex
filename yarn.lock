@@ -3698,6 +3698,11 @@ parcel-reporter-static-files-copy@^1.5.0:
   dependencies:
     "@parcel/plugin" "^2.0.0-beta.1"
 
+parcel-resolver-tspaths@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/parcel-resolver-tspaths/-/parcel-resolver-tspaths-0.0.9.tgz#905578f0c3d8fe795f798452fcfbf211f021dbde"
+  integrity sha512-U+iYUT5BewncKijBFJqLMsU78SfGBEzfVZ0T9O4hw5dCedTsOJdXOmlsqBw9ipdCA55GpQFuSnIe1Xv3sF53Vg==
+
 parcel@2.8.3:
   version "2.8.3"
   resolved "https://registry.yarnpkg.com/parcel/-/parcel-2.8.3.tgz#1ff71d7317274fd367379bc7310a52c6b75d30c2"

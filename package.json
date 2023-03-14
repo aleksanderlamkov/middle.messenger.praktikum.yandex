@@ -32,6 +32,7 @@
     "express": "4.18.2",
     "parcel": "2.8.3",
     "parcel-reporter-static-files-copy": "^1.5.0",
+    "parcel-resolver-tspaths": "^0.0.9",
     "path-browserify": "1.0.0",
     "postcss": "8.4.21",
     "postcss-custom-media": "9.1.2",
@@ -43,12 +44,6 @@
     "stylelint": "^15.2.0",
     "stylelint-config-standard": "^30.0.1",
     "typescript": "^4.9.5"
-  },
-  "alias": {
-    "jsxToDOM": "./src/shared/utils/jsxToDOM",
-    "pages": "./src/pages",
-    "widgets": "./src/widgets",
-    "shared": "./src/shared"
   },
   "staticFiles": {
     "staticPath": "public"
