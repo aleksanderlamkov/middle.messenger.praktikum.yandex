@@ -16,6 +16,8 @@ class Block<TComponentProps> {
 
   protected component: FC<TComponentProps>
 
+  protected componentWithProps: Element
+
   protected _key: string | null = null
 
   protected props: TProps
@@ -81,6 +83,7 @@ class Block<TComponentProps> {
     const shouldUpdate = this.componentDidUpdate(oldProp, newProp)
 
     if (shouldUpdate) {
+      this.removeEvents()
       this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
     }
   }
@@ -99,12 +102,26 @@ class Block<TComponentProps> {
     Object.assign(this.props, nextProps)
   }
 
-  private addEvents(Component: Element) {
+  private manageEvents(isAdd = true) {
     const { events = {} } = this.props
 
     Object.keys(events).forEach((eventName) => {
-      Component.addEventListener(eventName, events[eventName])
+      const eventFunction = events[eventName]
+
+      if (isAdd) {
+        this.componentWithProps.addEventListener(eventName, eventFunction)
+      } else {
+        this.componentWithProps.removeEventListener(eventName, eventFunction)
+      }
     })
+  }
+
+  private addEvents() {
+    this.manageEvents()
+  }
+
+  private removeEvents() {
+    this.manageEvents(false)
   }
 
   get oldNode(): HTMLElement {
@@ -120,8 +137,10 @@ class Block<TComponentProps> {
       <Component {...this.props} />
     ) as unknown as HTMLElement
 
+    this.componentWithProps = ComponentWithProps
+
     if (isMounting) {
-      this.addEvents(ComponentWithProps)
+      this.addEvents()
       this.key = ComponentWithProps.dataset.key as string
     } else {
       const { oldNode } = this
