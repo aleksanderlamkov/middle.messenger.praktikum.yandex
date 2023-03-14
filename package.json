@@ -83,7 +83,8 @@
         }
       ],
       "no-constructor-return": "off",
-      "no-restricted-globals": "off"
+      "no-restricted-globals": "off",
+      "security/detect-unsafe-regex": "off"
     }
   },
   "prettier": "@atlascommunity/prettier-config"

@@ -3,7 +3,8 @@ import jsxToDOM from 'jsxToDOM'
 import Fragment from 'shared/ui/Fragment'
 import PageHeader from 'shared/ui/PageHeader'
 import UserForm from 'widgets/UserForm'
-import { TInput, VALIDATION_PATTERNS } from 'shared/ui/Input/types.d'
+import { TInput } from 'shared/ui/Input/types.d'
+import patterns from 'shared/utils/validation/patterns'
 
 const title = 'Sign In'
 const fields: TInput[] = [
@@ -11,17 +12,18 @@ const fields: TInput[] = [
     name: 'login',
     label: 'Login',
     placeholder: 'Username',
-    validationPatterns: [
-      VALIDATION_PATTERNS.DEFAULT_LOGIN,
-      VALIDATION_PATTERNS.MINIMUM_ONE_LETTER,
-    ],
+    patterns: [patterns.loginLength, patterns.onlyLettersNumbersDashUnderscore],
   },
   {
     name: 'password',
     label: 'Password',
     placeholder: 'Your password',
     type: 'password',
-    validationPatterns: [VALIDATION_PATTERNS.PASSWORD],
+    patterns: [
+      patterns.passwordLength,
+      patterns.minimumOneUppercaseLetter,
+      patterns.minimumOneNumber,
+    ],
   },
 ]
 

@@ -3,70 +3,80 @@ import jsxToDOM from 'jsxToDOM'
 import Fragment from 'shared/ui/Fragment'
 import PageHeader from 'shared/ui/PageHeader'
 import ProfileForm from 'widgets/ProfileForm'
-import { TInput, VALIDATION_PATTERNS } from 'shared/ui/Input/types.d'
+import { TInput } from 'shared/ui/Input/types.d'
+import patterns from 'shared/utils/validation/patterns'
 
 const fields: TInput[] = [
   {
     name: 'first_name',
     label: 'First name',
     placeholder: 'Your first name',
-    validationPatterns: [VALIDATION_PATTERNS.ONLY_LETTERS_FIRST_UPPERCASE],
+    patterns: [patterns.onlyLettersDash],
   },
   {
     name: 'phone',
     label: 'Phone',
     placeholder: '+7 (999) 999-99-99',
     type: 'tel',
-    validationPatterns: [VALIDATION_PATTERNS.PHONE],
+    patterns: [patterns.phoneLength, patterns.onlyNumbersFirstMayPlus],
   },
   {
     name: 'second_name',
     label: 'Second name',
     placeholder: 'Your second name',
-    validationPatterns: [VALIDATION_PATTERNS.ONLY_LETTERS_FIRST_UPPERCASE],
+    patterns: [patterns.onlyLettersDash],
   },
   {
     name: 'display_name',
     label: 'Display name',
     placeholder: 'Your display name',
-    validationPatterns: [VALIDATION_PATTERNS.ONLY_LETTERS_FIRST_UPPERCASE],
+    patterns: [patterns.onlyLettersDash],
   },
   {
     name: 'password',
     label: 'Current password',
     placeholder: 'Your current password',
     type: 'password',
-    validationPatterns: [VALIDATION_PATTERNS.PASSWORD],
+    patterns: [
+      patterns.passwordLength,
+      patterns.minimumOneUppercaseLetter,
+      patterns.minimumOneNumber,
+    ],
   },
   {
     name: 'login',
     label: 'Login',
     placeholder: 'Your login',
-    validationPatterns: [
-      VALIDATION_PATTERNS.DEFAULT_LOGIN,
-      VALIDATION_PATTERNS.MINIMUM_ONE_LETTER,
-    ],
+    patterns: [patterns.loginLength, patterns.onlyLettersNumbersDashUnderscore],
   },
   {
     name: 'new-password',
     label: 'New password',
     placeholder: 'Your new password',
     type: 'password',
-    validationPatterns: [VALIDATION_PATTERNS.PASSWORD],
+    patterns: [
+      patterns.passwordLength,
+      patterns.minimumOneUppercaseLetter,
+      patterns.minimumOneNumber,
+    ],
   },
   {
     name: 'email',
     label: 'Email',
     placeholder: 'example@email.com',
     type: 'email',
-    validationPatterns: [VALIDATION_PATTERNS.EMAIL],
+    patterns: [patterns.email],
   },
   {
     name: 'password-repeat',
     label: 'Repeat password',
     placeholder: 'New password again',
     type: 'password',
-    validationPatterns: [VALIDATION_PATTERNS.PASSWORD],
+    patterns: [
+      patterns.passwordLength,
+      patterns.minimumOneUppercaseLetter,
+      patterns.minimumOneNumber,
+    ],
   },
 ]
 

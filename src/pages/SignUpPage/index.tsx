@@ -3,7 +3,8 @@ import jsxToDOM from 'jsxToDOM'
 import Fragment from 'shared/ui/Fragment'
 import PageHeader from 'shared/ui/PageHeader'
 import UserForm from 'widgets/UserForm'
-import { TInput, VALIDATION_PATTERNS } from 'shared/ui/Input/types.d'
+import { TInput } from 'shared/ui/Input/types.d'
+import patterns from 'shared/utils/validation/patterns'
 
 const title = 'Sign Up'
 const fields: TInput[] = [
@@ -11,50 +12,55 @@ const fields: TInput[] = [
     name: 'first_name',
     label: 'First name',
     placeholder: 'Your first name',
-    validationPatterns: [VALIDATION_PATTERNS.ONLY_LETTERS_FIRST_UPPERCASE],
+    patterns: [patterns.onlyLettersDash],
   },
   {
     name: 'second_name',
     label: 'Second name',
     placeholder: 'Your second name',
-    validationPatterns: [VALIDATION_PATTERNS.ONLY_LETTERS_FIRST_UPPERCASE],
+    patterns: [patterns.onlyLettersDash],
   },
   {
     name: 'login',
     label: 'Login',
     placeholder: 'Your login',
-    validationPatterns: [
-      VALIDATION_PATTERNS.DEFAULT_LOGIN,
-      VALIDATION_PATTERNS.MINIMUM_ONE_LETTER,
-    ],
+    patterns: [patterns.loginLength, patterns.onlyLettersNumbersDashUnderscore],
   },
   {
     name: 'email',
     label: 'Email',
     placeholder: 'example@email.com',
     type: 'email',
-    validationPatterns: [VALIDATION_PATTERNS.EMAIL],
+    patterns: [patterns.email],
   },
   {
     name: 'phone',
     label: 'Phone',
     placeholder: '+7 (999) 999-99-99',
     type: 'tel',
-    validationPatterns: [VALIDATION_PATTERNS.PHONE],
+    patterns: [patterns.phoneLength, patterns.onlyNumbersFirstMayPlus],
   },
   {
     name: 'password',
     label: 'Password',
     placeholder: 'Your password',
     type: 'password',
-    validationPatterns: [VALIDATION_PATTERNS.PASSWORD],
+    patterns: [
+      patterns.passwordLength,
+      patterns.minimumOneUppercaseLetter,
+      patterns.minimumOneNumber,
+    ],
   },
   {
     name: 'password_repeat',
     label: 'Repeat password',
     placeholder: 'Your password again',
     type: 'password',
-    validationPatterns: [VALIDATION_PATTERNS.PASSWORD],
+    patterns: [
+      patterns.passwordLength,
+      patterns.minimumOneUppercaseLetter,
+      patterns.minimumOneNumber,
+    ],
   },
 ]
 
