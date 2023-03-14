@@ -12,10 +12,11 @@
   ],
   "scripts": {
     "start": "yarn build && node server.js",
-    "dev": "concurrently \"yarn serve\" \"sleep 3 && yarn run watch\" & open http://localhost:3000",
+    "dev": "concurrently \"yarn serve\" \"sleep 0.5 && yarn watch\" \"sleep 6 && yarn open\"",
     "build": "parcel build 'static/*.html'",
     "watch": "parcel watch 'static/*.html'",
     "serve": "pkill node & node server.js",
+    "open": "open http://localhost:3000",
     "lint": "yarn eslint && yarn stylelint",
     "eslint": "eslint \"**/*.{ts,tsx}\"",
     "stylelint": "stylelint \"**/*.pcss\""
