@@ -83,7 +83,6 @@ class Block<TComponentProps> {
     const shouldUpdate = this.componentDidUpdate(oldProp, newProp)
 
     if (shouldUpdate) {
-      this.removeEvents()
       this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
     }
   }
@@ -109,6 +108,8 @@ class Block<TComponentProps> {
       const eventFunction = events[eventName]
 
       if (isAdd) {
+        // console.debug('Component:', Component)
+        // console.debug('add:', eventName)
         this.componentWithProps.addEventListener(eventName, eventFunction)
       } else {
         this.componentWithProps.removeEventListener(eventName, eventFunction)
@@ -145,9 +146,16 @@ class Block<TComponentProps> {
     } else {
       const { oldNode } = this
       if (oldNode) {
-        oldNode.innerHTML = ''
+        const hasChildren = oldNode.children.length > 0
         cloneAttributes(oldNode, ComponentWithProps, ['data-key'])
-        oldNode.append(ComponentWithProps)
+        if (hasChildren) {
+          oldNode.innerHTML = ''
+          oldNode.append(ComponentWithProps)
+        } else {
+          oldNode.innerHTML = ComponentWithProps.innerHTML
+        }
+      } else {
+        this.removeEvents()
       }
     }
 
