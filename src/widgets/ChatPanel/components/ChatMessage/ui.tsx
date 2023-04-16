@@ -1,17 +1,15 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import classNames from 'shared/utils/classNames'
+import getDateFormatted from 'shared/utils/getDateFormatted'
 import { TChatMessage } from './types'
 import './ChatMessage.pcss'
 
 const ChatMessage = (props: TChatMessage) => {
-  const {
-    text,
-    date,
-    isUserReply = false,
-    isSend = false,
-    isRead = false,
-  } = props
+  const { isUserReply = false, content, time } = props
+
+  const isSend = true
+  const isRead = false
 
   return (
     <div
@@ -20,9 +18,9 @@ const ChatMessage = (props: TChatMessage) => {
       })}
     >
       <div className="chat-message__inner">
-        <div className="chat-message__text">{text}</div>
+        <div className="chat-message__text">{content}</div>
         <div className="chat-message__info">
-          <time className="chat-message__date">{date}</time>
+          <time className="chat-message__date">{getDateFormatted(time)}</time>
           {isUserReply && (
             <div className="chat-message__indicator">
               {isSend && !isRead && (

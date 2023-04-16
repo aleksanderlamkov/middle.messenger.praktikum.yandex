@@ -1,10 +1,11 @@
-export type TPage = {
+export type TRoute = {
   path: string
   element: () => JSX.Element
+  isPrivate?: boolean
 }
 
 export type TRouter = {
-  pages: TPage[]
+  routes: TRoute[]
   errorPage: () => JSX.Element
   currentPath?: string
 }

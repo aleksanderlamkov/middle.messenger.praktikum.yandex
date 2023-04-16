@@ -1,0 +1,42 @@
+@import "../../styles/mixins.pcss";
+
+.modal {
+  @mixin square;
+
+  position: fixed;
+  z-index: var(--layer-modal);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-overlay);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    width: 100%;
+    max-width: 750px;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    background-color: var(--color-dark);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 30px;
+  }
+
+  &__title {
+    && {
+      --marginBottom: 0;
+    }
+  }
+
+  &__close-button {
+    min-width: initial;
+  }
+}

@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "start": "yarn build && node server.js",
-    "dev": "concurrently \"yarn serve\" \"sleep 0.5 && yarn watch\" \"sleep 6 && yarn open\"",
+    "dev": "concurrently \"yarn serve\" \"sleep 1 && yarn watch\" \"sleep 8 && yarn open\"",
     "build": "parcel build 'static/*.html'",
     "watch": "parcel watch 'static/*.html'",
     "serve": "pkill node & node server.js",
@@ -84,7 +84,9 @@
       ],
       "no-constructor-return": "off",
       "no-restricted-globals": "off",
-      "security/detect-unsafe-regex": "off"
+      "security/detect-unsafe-regex": "off",
+      "no-alert": "off",
+      "react/no-unknown-property": "off"
     }
   },
   "prettier": "@atlascommunity/prettier-config"

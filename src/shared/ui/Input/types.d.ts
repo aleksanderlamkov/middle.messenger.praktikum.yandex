@@ -10,6 +10,7 @@ export type TInput = Omit<TInputControl, 'events'> & {
   label?: string
   patterns?: TPattern[]
   errors?: string[]
+  value?: string
   onFocus?: TInputControlFocus
   onBlur?: TInputControlBlur
 }

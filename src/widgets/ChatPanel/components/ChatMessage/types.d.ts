@@ -1,7 +1,8 @@
 export type TChatMessage = {
-  text: string
-  date: string
+  content: string
+  id: number
+  time: string
+  type: string
+  user_id: number
   isUserReply?: boolean
-  isSend?: boolean
-  isRead?: boolean
 }

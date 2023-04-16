@@ -1,5 +1,4 @@
 // @ts-ignore
-// import jsxToDOM from 'jsxToDOM'
 import render from './shared/utils/render'
 import App from './app'
 import './app/styles'

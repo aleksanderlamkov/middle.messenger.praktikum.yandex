@@ -2,6 +2,7 @@
 import jsxToDOM from 'jsxToDOM'
 import Block from 'shared/utils/generic/block'
 import { routerEvents } from 'shared/ui/RouterLink'
+import bubble from 'shared/utils/bubble'
 import UI from './ui'
 import { TRouter } from './types'
 
@@ -17,16 +18,30 @@ class Router extends Block<TRouter> {
     return this.render()
   }
 
-  handlePathChange(event: any) {
-    const { pathname } = new URL(event.detail.href)
+  manageUrl(href = location.href) {
+    const { pathname } = new URL(href)
 
     this.setProps({ currentPath: pathname })
   }
 
+  static navigateTo(href: string) {
+    history.pushState({}, '', href)
+    bubble(routerEvents.pathChange, { href })
+  }
+
+  handlePathChange() {
+    this.manageUrl()
+  }
+
+  handlePopStateChange() {
+    this.manageUrl()
+  }
+
   bindEvents() {
-    document.addEventListener(routerEvents.pathChange, (event) => {
-      this.handlePathChange(event)
-    })
+    document.addEventListener(routerEvents.pathChange, () =>
+      this.handlePathChange()
+    )
+    window.addEventListener('popstate', () => this.handlePopStateChange())
   }
 }
 

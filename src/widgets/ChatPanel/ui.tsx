@@ -1,65 +1,111 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Fragment from 'shared/ui/Fragment'
-import ChatPreviewCard from './components/ChatPreviewCard/ui'
-import ChatMessage from './components/ChatMessage/ui'
-import ChatForm from './components/ChatForm'
+import Button from 'shared/ui/Button'
+import ChatPreviewCard from './components/ChatPreviewCard'
 import { TChatPanel } from './types'
+import CurrentChat from './components/CurrentChat'
+import CreateChatModal from './components/CreateChatModal'
+import ManageUsersModal from './components/ManageUsersModal'
 import './ChatPanel.pcss'
 
 const ChatPanel = (props: TChatPanel) => {
-  const { chatPreviewItems = [], currentDialog } = props
-
   const {
-    title,
-    avatarSrc = '/images/avatar-placeholder.jpg',
-    messages = [],
-  } = currentDialog
+    chatPreviewItems = [],
+    currentChat,
+    isCreateChatModalOpen = false,
+    isManageUsersModalOpen = false,
+    onCreateChatButtonClick,
+    onCloseCreateChatModalButtonClick,
+    onCreateChatFormSubmit,
+    onChatPreviewCardClick,
+    onManageUsersButtonClick,
+    onCloseManageUsersModalButtonClick,
+    onDeleteChatButtonClick,
+    updateChatsPreview,
+  } = props
 
   const hasChatPreviewItems = chatPreviewItems.length > 0
-  const hasMessages = messages.length > 0
 
   return (
-    <div className="chat-panel">
-      <div className="chat-panel__dialogs">
-        {hasChatPreviewItems && (
-          <ul className="chat-panel__dialogs-list">
-            {chatPreviewItems.map((chatPreviewItem) => (
-              <li className="chat-panel__dialogs-item">
-                <ChatPreviewCard {...chatPreviewItem} />
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <div className="chat-panel__current-dialog">
-        <header className="chat-panel__header">
-          <img
-            className="chat-panel__avatar"
-            src={avatarSrc}
-            alt={`Avatar of ${title}`}
-            width="50"
-            height="50"
-            loading="lazy"
-          />
-          <h2 className="chat-panel__title">{title}</h2>
-        </header>
-        <div className="chat-panel__body">
-          <div className="chat-panel__messages">
-            {hasMessages && (
-              <ul className="chat-panel__messages-list">
-                {messages.map((message) => (
-                  <li className="chat-panel__messages-item">
-                    <ChatMessage {...message} />
+    <Fragment>
+      <div className="chat-panel">
+        <div className="chat-panel__dialogs">
+          <Fragment>
+            {
+              new Button({
+                className: 'chat-panel__create-chat-button',
+                label: 'Create chat',
+                events: {
+                  click: onCreateChatButtonClick,
+                },
+              })
+            }
+          </Fragment>
+          {hasChatPreviewItems && (
+            <ul className="chat-panel__dialogs-list">
+              {chatPreviewItems.map((chatPreviewItem) => {
+                return (
+                  <li className="chat-panel__dialogs-item">
+                    <Fragment>
+                      {
+                        new ChatPreviewCard({
+                          ...chatPreviewItem,
+                          isActive: currentChat?.id === chatPreviewItem.id,
+                          onClick: () =>
+                            onChatPreviewCardClick(chatPreviewItem),
+                        })
+                      }
+                    </Fragment>
                   </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          <Fragment>{new ChatForm({})}</Fragment>
+                )
+              })}
+            </ul>
+          )}
+        </div>
+
+        <div className="chat-panel__body">
+          {currentChat ? (
+            <Fragment>
+              {
+                new CurrentChat({
+                  onManageUsersButtonClick,
+                  onDeleteChatButtonClick,
+                  ...currentChat,
+                  updateChatsPreview,
+                })
+              }
+            </Fragment>
+          ) : (
+            <div className="chat-panel__empty-chat-message">
+              Select a chat from the list on the left to start chatting
+            </div>
+          )}
         </div>
       </div>
-    </div>
+
+      {isCreateChatModalOpen && (
+        <Fragment>
+          {
+            new CreateChatModal({
+              onCloseCreateChatModalButtonClick,
+              onCreateChatFormSubmit,
+            })
+          }
+        </Fragment>
+      )}
+
+      {isManageUsersModalOpen && (
+        <Fragment>
+          {
+            new ManageUsersModal({
+              onCloseManageUsersModalButtonClick,
+              chatId: currentChat.id,
+            })
+          }
+        </Fragment>
+      )}
+    </Fragment>
   )
 }
 

@@ -1,16 +1,21 @@
 import { THeaderMenuItem } from './types'
 
-const defaultMenuItems: THeaderMenuItem[] = [
+const defaultMenuItems: THeaderMenuItem[] = []
+
+export const authMenuItems: THeaderMenuItem[] = [
   {
-    href: '/',
+    href: '/messenger',
     label: 'Chats',
   },
   {
-    href: '/profile',
+    href: '/settings',
     label: 'Profile',
   },
+]
+
+export const nonAuthMenuItems: THeaderMenuItem[] = [
   {
-    href: '/sign-in',
+    href: '/',
     label: 'Sign In',
   },
   {
