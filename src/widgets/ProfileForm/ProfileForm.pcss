@@ -2,7 +2,7 @@
 
 .profile-form {
   display: grid;
-  grid-template-columns: 250px auto;
+  grid-template-columns: 1fr;
   gap: 50px 30px;
   width: 100%;
   max-width: 940px;
@@ -31,8 +31,20 @@
     }
   }
 
+  &__passwords {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
   &__input {
     --inputWidth: 100%;
+
+    @media (--mobile) {
+      margin-inline: auto;
+    }
   }
 
   &__actions {
@@ -41,8 +53,13 @@
     grid-column: -1 / 1;
   }
 
+  &__input,
+  &__passwords,
+  &__submit-button {
+    max-width: 350px;
+  }
+
   &__submit-button {
     width: 100%;
-    max-width: 350px;
   }
 }

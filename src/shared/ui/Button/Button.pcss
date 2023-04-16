@@ -10,6 +10,7 @@
   --buttonBoxShadow: var(--box-shadow-barely);
 
   --buttonHoverBgColor: var(--color-secondary);
+  --buttonHoverBorderColor: transparent;
 
   --buttonFocusBgColor: var(--color-secondary);
   --buttonFocusBorderColor: var(--color-light);
@@ -29,11 +30,29 @@
   &:hover {
     @media (--hoverable) {
       background-color: var(--buttonHoverBgColor);
+      border-color: var(--buttonHoverBorderColor);
     }
   }
 
   &:focus {
     background-color: var(--buttonFocusBgColor);
     border-color: var(--buttonFocusBorderColor);
+  }
+
+  &.has-content {
+    --buttonHeight: initial;
+    --buttonPaddingX: 0;
+    --buttonBgColor: transparent;
+    --buttonBorderColor: transparent;
+    --buttonBorderRadius: 50%;
+    --buttonBoxShadow: initial;
+
+    --buttonHoverBgColor: transparent;
+    --buttonHoverBorderColor: var(--color-secondary);
+
+    --buttonFocusBgColor: transparent;
+
+    min-width: initial;
+    padding: 6px;
   }
 }

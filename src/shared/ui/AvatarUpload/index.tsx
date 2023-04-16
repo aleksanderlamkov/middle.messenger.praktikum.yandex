@@ -24,11 +24,24 @@ class AvatarUpload extends Block<TAvatarUpload> {
   }
 
   handleChange({ target }: Event<HTMLInputElement>) {
+    const { onAfterUpload } = this.props
     const file = target.files?.[0]
+    if (!file) return
 
-    if (file) {
-      this.setPreviewImage(file)
-    }
+    // @ts-ignore
+    onAfterUpload(file)
+      .then((response: { reason: string; avatar: string }) => {
+        const { reason, avatar } = response
+
+        if (reason) {
+          alert(reason)
+        } else {
+          this.setProps({
+            imgSrc: `https://ya-praktikum.tech/api/v2/resources/${avatar}`,
+          })
+        }
+      })
+      .catch(alert)
   }
 
   resetError() {

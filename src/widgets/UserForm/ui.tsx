@@ -1,7 +1,7 @@
 // @ts-ignore
 import jsxToDOM from 'jsxToDOM'
 import Input from 'shared/ui/Input'
-import Button from 'shared/ui/Button'
+import Button from 'shared/ui/Button/ui'
 import Fragment from 'shared/ui/Fragment'
 import { TUserForm } from './types'
 import './UserForm.pcss'

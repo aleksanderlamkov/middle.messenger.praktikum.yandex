@@ -15,14 +15,17 @@ type TOptions = {
   headers?: Record<string, string>
 }
 
+export const jsonHeaders = { 'Content-Type': 'application/json' }
+
 class HTTPTransport {
   get(url: TUrl, options: TOptions = {}) {
     const { data } = options
-    const urlFormatted = `${url}${getStringifyData(data)}`
+    const urlFormatted = data ? `${url}${getStringifyData(data)}` : url
 
     return this.request(urlFormatted, {
       ...options,
       method: METHODS.GET,
+      headers: jsonHeaders,
     })
   }
 
@@ -30,6 +33,7 @@ class HTTPTransport {
     return this.request(url, {
       ...options,
       method: METHODS.POST,
+      headers: jsonHeaders,
     })
   }
 
@@ -51,12 +55,15 @@ class HTTPTransport {
     const { method = 'GET', data, headers = {} } = options
     const isPostMethod = method === METHODS.POST
     const isPutMethod = method === METHODS.PUT
+    const isDeleteMethod = method === METHODS.DELETE
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
 
       xhr.open(method, url)
       xhr.timeout = timeout
+      xhr.responseType = 'json'
+      xhr.withCredentials = true
 
       Object.entries(headers).forEach(([key, value]) =>
         xhr.setRequestHeader(key, value)
@@ -67,7 +74,7 @@ class HTTPTransport {
       xhr.onerror = reject
       xhr.ontimeout = reject
 
-      if (isPostMethod || isPutMethod) {
+      if (isPostMethod || isPutMethod || isDeleteMethod) {
         xhr.send(data)
       } else {
         xhr.send()
@@ -76,4 +83,4 @@ class HTTPTransport {
   }
 }
 
-export default HTTPTransport
+export default new HTTPTransport()

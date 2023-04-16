@@ -32,7 +32,11 @@ class Input extends Block<TInput> {
     patterns?: TPattern[]
   ): boolean {
     const shouldValidate = patterns && patterns.length > 0
-    if (!shouldValidate) return true
+    if (!shouldValidate) {
+      input.classList.toggle(stateClasses.isInvalid, false)
+      Input.setErrors(input, [])
+      return true
+    }
 
     const { value } = input
     const errors: string[] = []

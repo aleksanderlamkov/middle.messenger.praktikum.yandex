@@ -5,6 +5,10 @@ import PageHeader from 'shared/ui/PageHeader'
 import UserForm from 'widgets/UserForm'
 import { TInput } from 'shared/ui/Input/types.d'
 import patterns from 'shared/utils/validation/patterns'
+import authServices from 'shared/services/authServices'
+import { TSignUpResponse } from 'shared/services/authServices/types'
+import { setCookie } from 'shared/utils/cookie'
+import Router from '../Router'
 
 const title = 'Sign Up'
 const fields: TInput[] = [
@@ -65,6 +69,15 @@ const fields: TInput[] = [
 ]
 
 const SignUpPage = () => {
+  const onSuccess = (response: TSignUpResponse) => {
+    const isSuccess = typeof response.id !== 'undefined'
+
+    if (isSuccess) {
+      setCookie('isAuth', 'true')
+      Router.navigateTo('/messenger')
+    }
+  }
+
   return (
     <Fragment>
       <PageHeader title={title} />
@@ -75,6 +88,8 @@ const SignUpPage = () => {
             submitButtonLabel: title,
             linkHref: '/',
             linkLabel: 'Sign In',
+            fetchFn: authServices.signUp,
+            onSuccess,
           })
         }
       </Fragment>

@@ -108,8 +108,6 @@ class Block<TComponentProps> {
       const eventFunction = events[eventName]
 
       if (isAdd) {
-        // console.debug('Component:', Component)
-        // console.debug('add:', eventName)
         this.componentWithProps.addEventListener(eventName, eventFunction)
       } else {
         this.componentWithProps.removeEventListener(eventName, eventFunction)

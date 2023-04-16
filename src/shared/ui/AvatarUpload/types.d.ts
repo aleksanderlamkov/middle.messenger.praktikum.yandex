@@ -1,3 +1,4 @@
+import { TUserService } from 'shared/services/usersServices/types'
 import {
   TAvatarUploadControl,
   TAvatarUploadControlOnChange,
@@ -9,4 +10,5 @@ export type TAvatarUpload = Omit<TAvatarUploadControl, 'events'> & {
   imgSrc?: string
   error?: string
   onChange?: TAvatarUploadControlOnChange
+  onAfterUpload?: TUserService['changeAvatar']
 }
