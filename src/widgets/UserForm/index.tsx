@@ -36,7 +36,14 @@ class UserForm extends Block<TUserForm> {
       .then((response) => {
         if (response) {
           const { reason } = response as any
+
           if (reason) {
+            const isAlreadyInSystem = reason === 'User already in system'
+            if (isAlreadyInSystem) {
+              onSuccess(response)
+              return
+            }
+
             alert(reason)
             return
           }
