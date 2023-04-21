@@ -15,10 +15,12 @@ type TOptions = {
   headers?: Record<string, string>
 }
 
+type HTTPMethod = (url: TUrl, options?: TOptions) => Promise<unknown>
+
 export const jsonHeaders = { 'Content-Type': 'application/json' }
 
 class HTTPTransport {
-  get(url: TUrl, options: TOptions = {}) {
+  get: HTTPMethod = (url, options = {}) => {
     const { data } = options
     const urlFormatted = data ? `${url}${getStringifyData(data)}` : url
 
@@ -29,7 +31,7 @@ class HTTPTransport {
     })
   }
 
-  post(url: TUrl, options = {}) {
+  post: HTTPMethod = (url, options = {}) => {
     return this.request(url, {
       ...options,
       method: METHODS.POST,
@@ -37,14 +39,14 @@ class HTTPTransport {
     })
   }
 
-  put(url: TUrl, options = {}) {
+  put: HTTPMethod = (url, options = {}) => {
     return this.request(url, {
       ...options,
       method: METHODS.PUT,
     })
   }
 
-  delete(url: TUrl, options = {}) {
+  delete: HTTPMethod = (url, options = {}) => {
     return this.request(url, {
       ...options,
       method: METHODS.DELETE,

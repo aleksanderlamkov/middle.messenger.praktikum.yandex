@@ -1,4 +1,4 @@
-type TOptions = Record<string, any> & {
+type TCookieOptions = Record<string, unknown> & {
   expires?: number | Date | string
 }
 
@@ -11,7 +11,7 @@ const getCookie = (name: string) => {
 }
 
 /* eslint-disable */
-const setCookie = (name: string, value: any, options: TOptions = {}) => {
+const setCookie = (name: string, value: string | object, options: TCookieOptions = {}) => {
   let { expires } = options
   if (typeof expires === 'number' && expires) {
     const d = new Date()
@@ -21,8 +21,12 @@ const setCookie = (name: string, value: any, options: TOptions = {}) => {
   if (expires && (expires as Date).toUTCString) {
     options.expires = (expires as Date).toUTCString()
   }
-  value = encodeURIComponent(value.toString())
-  let updatedCookie = `${name}=${value}`
+  
+  const isValueString = typeof value === 'string'
+  const valueAsString = isValueString ? value : value.toString()
+  const valueEncoded = encodeURIComponent(valueAsString)
+  let updatedCookie = `${name}=${valueEncoded}`
+  
   for (const propName in options) {
     updatedCookie += `; ${propName}`
     const propValue = options[propName]
@@ -30,6 +34,7 @@ const setCookie = (name: string, value: any, options: TOptions = {}) => {
       updatedCookie += `=${propValue}`
     }
   }
+  
   document.cookie = updatedCookie
 }
 
