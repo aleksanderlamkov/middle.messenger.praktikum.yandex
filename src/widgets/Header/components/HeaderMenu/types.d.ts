@@ -5,4 +5,5 @@ export type THeaderMenuItem = {
 
 export type THeaderMenu = {
   items?: THeaderMenuItem[]
+  isAuth?: boolean
 }

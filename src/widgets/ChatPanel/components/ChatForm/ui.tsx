@@ -12,7 +12,7 @@ const ChatForm = () => {
         {
           new Input({
             className: 'chat-form__input',
-            name: 'user-message',
+            name: 'message',
             placeholder: 'Message...',
             patterns: [patterns.notEmpty],
           })
@@ -26,7 +26,8 @@ const ChatForm = () => {
           width="50"
           height="50"
           loading="lazy"
-          aria-label="Send message"
+          // @ts-ignore
+          ariaLabel="Send message"
         />
       </button>
     </form>

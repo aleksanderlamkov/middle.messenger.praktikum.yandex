@@ -1,0 +1,45 @@
+@import "../../styles/mixins.pcss";
+
+.tooltip {
+  --buttonBgColor: transparent;
+
+  position: relative;
+
+  &:hover {
+    --buttonBgColor: var(--color-accent);
+  }
+
+  &:not(:hover) {
+    .tooltip__body {
+      @mixin hide;
+    }
+  }
+
+  &__button {
+    --size: 36px;
+
+    @mixin flex-center;
+    @mixin square var(--size);
+
+    padding: 6px;
+    background-color: var(--buttonBgColor);
+    border: none;
+    border-radius: var(--border-radius-small);
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__body {
+    @mixin transition;
+
+    position: absolute;
+    z-index: var(--layer-tooltip);
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    padding: 10px;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    border-radius: var(--border-radius-small);
+  }
+}

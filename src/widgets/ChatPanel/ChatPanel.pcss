@@ -1,8 +1,10 @@
 @import "../../shared/styles/mixins.pcss";
 
 .chat-panel {
-  display: flex;
+  display: grid;
+  grid-template-columns: 445px auto;
   column-gap: 40px;
+  min-height: 60vh;
 
   &__dialogs,
   &__messages {
@@ -10,7 +12,9 @@
   }
 
   &__dialogs,
-  &__current-dialog {
+  &__body {
+    display: flex;
+    flex-direction: column;
     padding: 15px;
     background-color: var(--color-dark);
     border-radius: var(--border-radius);
@@ -19,6 +23,7 @@
 
   &__dialogs {
     flex-shrink: 0;
+    row-gap: 30px;
     max-height: 65vh;
 
     &-list {
@@ -29,52 +34,88 @@
     }
   }
 
-  &__current-dialog {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    row-gap: 20px;
+  &__create-chat-button {
     width: 100%;
   }
 
-  &__header {
-    display: flex;
-    align-items: center;
-    column-gap: 25px;
-    padding: 20px;
-    background-color: var(--color-dark);
-    border: var(--border-light);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-  }
-
-  &__body {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
-  }
-
-  &__avatar {
-    --size: 50px;
-
-    @mixin square var(--size);
-
-    border-radius: 50%;
-  }
-
-  &__title {
-    margin-right: auto;
-    font-size: 24px;
-    font-weight: 400;
+  &__empty-chat-message {
+    margin: auto;
+    text-align: center;
+    color: var(--color-gray);
   }
 
   &__messages {
-    max-height: 50vh;
+    max-height: 35vh;
 
     &-list {
       display: flex;
       flex-direction: column;
       row-gap: 20px;
+    }
+  }
+
+  &__modal-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    &-input {
+      --inputTextAlign: center;
+    }
+  }
+
+  &__add-users {
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      border: 1px solid var(--color-accent);
+      border-radius: var(--border-radius-small);
+
+      &.is-ready-to-add {
+        border-color: var(--color-secondary);
+      }
+    }
+  }
+
+  &__add-selected-users-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  &__added-users {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &-title {
+      font-weight: 700;
+    }
+
+    &-list {
+      display: contents;
+      list-style: none;
+    }
+
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      column-gap: 5px;
     }
   }
 }

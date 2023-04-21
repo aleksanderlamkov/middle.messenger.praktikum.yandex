@@ -30,18 +30,6 @@ const fields: TInput[] = [
     name: 'display_name',
     label: 'Display name',
     placeholder: 'Your display name',
-    patterns: [patterns.onlyLettersDash],
-  },
-  {
-    name: 'password',
-    label: 'Current password',
-    placeholder: 'Your current password',
-    type: 'password',
-    patterns: [
-      patterns.passwordLength,
-      patterns.minimumOneUppercaseLetter,
-      patterns.minimumOneNumber,
-    ],
   },
   {
     name: 'login',
@@ -50,7 +38,23 @@ const fields: TInput[] = [
     patterns: [patterns.loginLength, patterns.onlyLettersNumbersDashUnderscore],
   },
   {
-    name: 'new-password',
+    name: 'email',
+    label: 'Email',
+    placeholder: 'example@email.com',
+    type: 'email',
+    patterns: [patterns.email],
+  },
+]
+
+const passwordFields: TInput[] = [
+  {
+    name: 'oldPassword',
+    label: 'Current password',
+    placeholder: 'Your current password',
+    type: 'password',
+  },
+  {
+    name: 'newPassword',
     label: 'New password',
     placeholder: 'Your new password',
     type: 'password',
@@ -60,33 +64,15 @@ const fields: TInput[] = [
       patterns.minimumOneNumber,
     ],
   },
-  {
-    name: 'email',
-    label: 'Email',
-    placeholder: 'example@email.com',
-    type: 'email',
-    patterns: [patterns.email],
-  },
-  {
-    name: 'password-repeat',
-    label: 'Repeat password',
-    placeholder: 'New password again',
-    type: 'password',
-    patterns: [
-      patterns.passwordLength,
-      patterns.minimumOneUppercaseLetter,
-      patterns.minimumOneNumber,
-    ],
-  },
 ]
 
-const ProfilePage = () => {
+const SettingsPage = () => {
   return (
     <Fragment>
       <PageHeader title="Profile settings" />
-      <Fragment>{new ProfileForm({ fields })}</Fragment>
+      <Fragment>{new ProfileForm({ fields, passwordFields })}</Fragment>
     </Fragment>
   )
 }
 
-export default ProfilePage
+export default SettingsPage

@@ -29,20 +29,29 @@ class RouterLink extends Block<TRouterLink> {
 
     const { href } = event.currentTarget as HTMLLinkElement
 
-    history.pushState(null, '', href)
+    history.pushState({}, '', href)
     bubble(routerEvents.pathChange, { href })
   }
 
-  handlePathChange(event: any) {
-    const { pathname } = new URL(event.detail.href)
+  manageActiveState() {
+    const { pathname } = new URL(location.href)
 
     this.setProps({ isActive: pathname === this.props.href })
   }
 
+  handlePathChange() {
+    this.manageActiveState()
+  }
+
+  handlePopStateChange() {
+    this.manageActiveState()
+  }
+
   bindEvents() {
-    document.addEventListener(routerEvents.pathChange, (event) => {
-      this.handlePathChange(event)
-    })
+    document.addEventListener(routerEvents.pathChange, () =>
+      this.handlePathChange()
+    )
+    window.addEventListener('popstate', () => this.handlePopStateChange())
   }
 }
 

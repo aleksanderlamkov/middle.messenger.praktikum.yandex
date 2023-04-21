@@ -2,16 +2,27 @@
 import jsxToDOM from 'jsxToDOM'
 import Fragment from 'shared/ui/Fragment'
 import RouterLink from 'shared/ui/RouterLink'
-import defaultMenuItems from './defaultMenuItems'
+import defaultMenuItems, {
+  authMenuItems,
+  nonAuthMenuItems,
+} from './defaultMenuItems'
 import { THeaderMenu } from './types'
+import LogOut from '../../../../features/user/LogOut'
 
 const HeaderMenu = (props: THeaderMenu) => {
-  const { items = defaultMenuItems } = props
+  const { items = defaultMenuItems, isAuth } = props
+  const itemsFormatted = [...items]
+
+  if (isAuth) {
+    itemsFormatted.push(...authMenuItems)
+  } else {
+    itemsFormatted.push(...nonAuthMenuItems)
+  }
 
   return (
     <nav className="header__menu">
       <ul className="header__menu-list">
-        {items.map(({ href, label }) => (
+        {itemsFormatted.map(({ href, label }) => (
           <li className="header__menu-item">
             <Fragment>
               {
@@ -24,6 +35,11 @@ const HeaderMenu = (props: THeaderMenu) => {
             </Fragment>
           </li>
         ))}
+        {isAuth && (
+          <li className="header__menu-item">
+            <Fragment>{new LogOut({})}</Fragment>
+          </li>
+        )}
       </ul>
     </nav>
   )
