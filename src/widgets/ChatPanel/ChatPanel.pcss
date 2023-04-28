@@ -6,9 +6,15 @@
   column-gap: 40px;
   min-height: 60vh;
 
+  @media (--tablet-s) {
+    grid-template-columns: 1fr;
+  }
+
   &__dialogs,
   &__messages {
-    overflow-y: auto;
+    @media (--tablet-s-above) {
+      overflow-y: auto;
+    }
   }
 
   &__dialogs,
@@ -24,7 +30,10 @@
   &__dialogs {
     flex-shrink: 0;
     row-gap: 30px;
-    max-height: 65vh;
+
+    @media (--tablet-s-above) {
+      max-height: 65vh;
+    }
 
     &-list {
       display: flex;
@@ -45,12 +54,15 @@
   }
 
   &__messages {
-    max-height: 35vh;
+    @media (--tablet-s-above) {
+      max-height: 35vh;
+    }
 
     &-list {
       display: flex;
       flex-direction: column;
       row-gap: 20px;
+      list-style: none;
     }
   }
 
