@@ -1,6 +1,7 @@
 type TClassName = string | number | boolean | undefined | null
 type Mapping = Record<string, unknown>
 type Argument = TClassName | Mapping | ArgumentArray
+
 interface ArgumentArray extends Array<Argument> {}
 
 const classNames = (...args: ArgumentArray): string => {
@@ -26,7 +27,8 @@ const classNames = (...args: ArgumentArray): string => {
 
       if (hasStringifyMethod) {
         Object.keys(arg).forEach((key) => {
-          const hasOwnKey = {}.hasOwnProperty.call(arg, key) && arg[key as keyof object]
+          const hasOwnKey =
+            {}.hasOwnProperty.call(arg, key) && arg[key as keyof object]
           if (hasOwnKey) classes.push(key)
         })
       } else {

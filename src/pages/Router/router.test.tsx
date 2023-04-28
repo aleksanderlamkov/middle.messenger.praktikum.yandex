@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import Router from './'
+import Router from '.'
 
 describe('Router', () => {
   it('Correct history state after navigation', () => {

@@ -44,7 +44,7 @@ const SignInPage = () => {
           new UserForm({
             fields,
             submitButtonLabel: title,
-            linkHref: '/',
+            linkHref: '/sign-up',
             linkLabel: 'Sign Up',
             fetchFn: authServices.signIn,
             onSuccess,

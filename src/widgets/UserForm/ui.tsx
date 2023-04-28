@@ -3,6 +3,7 @@ import jsxToDOM from 'jsxToDOM'
 import Input from 'shared/ui/Input'
 import Button from 'shared/ui/Button/ui'
 import Fragment from 'shared/ui/Fragment'
+import RouterLink from 'shared/ui/RouterLink'
 import { TUserForm } from './types'
 import './UserForm.pcss'
 
@@ -30,9 +31,15 @@ const UserForm = (props: TUserForm) => {
       </fieldset>
       <fieldset className="user-form__group">
         <Button label={submitButtonLabel} type="submit" />
-        <a className="user-form__link" href={linkHref}>
-          {linkLabel}
-        </a>
+        <Fragment>
+          {
+            new RouterLink({
+              className: 'user-form__link',
+              href: linkHref,
+              content: linkLabel,
+            })
+          }
+        </Fragment>
       </fieldset>
     </form>
   )

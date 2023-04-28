@@ -1,6 +1,6 @@
+import { expect } from 'chai'
 // @ts-ignore
 import jsxToDOM from './index'
-import { expect } from 'chai'
 
 describe('jsxToDom', () => {
   const element = jsxToDOM('div', { className: 'test-class' }, 'Content')
