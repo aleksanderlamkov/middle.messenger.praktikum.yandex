@@ -21,7 +21,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test && yarn lint"
+      "pre-commit": "yarn-run-all test lint"
     }
   },
   "dependencies": {
@@ -63,7 +63,8 @@
     "webpack": "5.81.0",
     "webpack-cli": "5.0.2",
     "webpack-dev-server": "4.13.3",
-    "xmlhttprequest": "1.8.0"
+    "xmlhttprequest": "1.8.0",
+    "yarn-run-all": "^3.1.1"
   },
   "eslintConfig": {
     "extends": [
