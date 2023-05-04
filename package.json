@@ -19,6 +19,11 @@
     "eslint": "eslint \"**/*.{ts,tsx}\"",
     "stylelint": "stylelint \"**/*.pcss\""
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test && yarn lint"
+    }
+  },
   "dependencies": {
     "postcss-import": "15.1.0",
     "postcss-preset-env": "8.3.2"
@@ -39,6 +44,7 @@
     "express": "4.18.2",
     "file-loader": "6.2.0",
     "html-webpack-plugin": "5.5.1",
+    "husky": "^8.0.3",
     "jsdom": "21.1.1",
     "mini-css-extract-plugin": "2.7.5",
     "mocha": "10.2.0",
