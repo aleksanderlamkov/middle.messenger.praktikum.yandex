@@ -3,10 +3,9 @@ import jsxToDOM from 'jsxToDOM'
 import classNames from 'shared/utils/classNames'
 import Fragment from 'shared/ui/Fragment'
 import getDateFormatted from 'shared/utils/getDateFormatted'
+import defaultAvatarSrc from 'assets/images/avatar-placeholder.jpg'
 import { TChatPreviewCard } from './types'
 import './ChatPreviewCard.pcss'
-
-const defaultAvatarSrc = '/images/avatar-placeholder.jpg'
 
 const ChatPreviewCard = (props: TChatPreviewCard) => {
   const {

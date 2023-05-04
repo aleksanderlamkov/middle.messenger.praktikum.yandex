@@ -2,6 +2,8 @@
 import jsxToDOM from 'jsxToDOM'
 import classNames from 'shared/utils/classNames'
 import getDateFormatted from 'shared/utils/getDateFormatted'
+import iconSendImgSrc from 'assets/icons/send.svg'
+import iconReadImgSrc from 'assets/icons/read.svg'
 import { TChatMessage } from './types'
 import './ChatMessage.pcss'
 
@@ -26,7 +28,7 @@ const ChatMessage = (props: TChatMessage) => {
               {isSend && !isRead && (
                 <img
                   className="chat-message__indicator-icon"
-                  src="/icons/send.svg"
+                  src={iconSendImgSrc}
                   alt="Sent"
                   width="15"
                   height="12"
@@ -37,7 +39,7 @@ const ChatMessage = (props: TChatMessage) => {
               {isSend && isRead && (
                 <img
                   className="chat-message__indicator-icon"
-                  src="/icons/read.svg"
+                  src={iconReadImgSrc}
                   alt="Read"
                   width="20"
                   height="12"

@@ -1,5 +1,3 @@
-// @ts-ignore
-import jsxToDOM from 'jsxToDOM'
 import Block from 'shared/utils/generic/block'
 import { routerEvents } from 'shared/ui/RouterLink'
 import bubble from 'shared/utils/bubble'
@@ -7,7 +5,7 @@ import UI from './ui'
 import { TRouter } from './types'
 
 class Router extends Block<TRouter> {
-  constructor(props: TRouter) {
+  constructor(props: Partial<TRouter>) {
     super(UI, {
       ...props,
       currentPath: location.pathname,
@@ -24,9 +22,12 @@ class Router extends Block<TRouter> {
     this.setProps({ currentPath: pathname })
   }
 
-  static navigateTo(href: string) {
-    history.pushState({}, '', href)
-    bubble(routerEvents.pathChange, { href })
+  static navigateTo(href: string, hasBubble = true) {
+    history.pushState({ name: href }, '', href)
+
+    if (hasBubble) {
+      bubble(routerEvents.pathChange, { href })
+    }
   }
 
   handlePathChange() {

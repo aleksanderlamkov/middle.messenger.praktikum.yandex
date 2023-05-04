@@ -7,6 +7,7 @@ import ButtonUI from 'shared/ui/Button/ui'
 import Modal from 'shared/ui/Modal'
 import classNames from 'shared/utils/classNames'
 import Button from 'shared/ui/Button'
+import iconCrossImgSrc from 'assets/icons/cross.svg'
 import { TManageUsersModal, TManageUsersModalPublic } from './types'
 
 const ManageUsersModal = (
@@ -49,7 +50,7 @@ const ManageUsersModal = (
                         content: (
                           <img
                             className="chat-form__button-icon"
-                            src="/icons/cross.svg"
+                            src={iconCrossImgSrc}
                             alt=""
                             width="16"
                             height="16"
