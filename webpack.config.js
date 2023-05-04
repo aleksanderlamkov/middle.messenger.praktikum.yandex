@@ -78,6 +78,7 @@ module.exports = (env, options) => {
       }),
       new HtmlWebpackPlugin({
         template: './src/index.html',
+        minify: false,
       }),
     ],
   }
