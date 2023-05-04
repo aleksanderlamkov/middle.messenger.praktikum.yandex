@@ -3,6 +3,7 @@ const { HotModuleReplacementPlugin } = require('webpack')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = (env, options) => {
   const { mode } = options
@@ -61,15 +62,8 @@ module.exports = (env, options) => {
         },
         {
           test: /\.(png|jpg|gif|svg)($|\?)|\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: (resourcePath) => resourcePath.split('src/')[1]
-              },
-            },
-          ],
-        },
+          type: 'asset/resource'
+        }
       ],
     },
     plugins: [
@@ -79,6 +73,13 @@ module.exports = (env, options) => {
       new HtmlWebpackPlugin({
         template: './src/index.html',
         minify: false,
+      }),
+      new CopyWebpackPlugin({
+        patterns: [{
+          from: path.resolve(__dirname, './src/assets'),
+          to: './assets',
+          noErrorOnMissing: true
+        }]
       }),
     ],
   }
@@ -97,6 +98,12 @@ module.exports = (env, options) => {
       },
       devtool: 'source-map',
       plugins: [...commonParams.plugins, new HotModuleReplacementPlugin()],
+    }
+  } else {
+    extraParams = {
+      plugins: [
+        ...commonParams.plugins,
+      ],
     }
   }
 
