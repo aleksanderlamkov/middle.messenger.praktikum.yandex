@@ -24,6 +24,11 @@
       "pre-commit": "yarn-run-all test lint"
     }
   },
+  "lint-staged": {
+    "*.ts": "eslint",
+    "*.tsx": "eslint",
+    "*.pcss": "stylelint"
+  },
   "dependencies": {
     "postcss-import": "15.1.0",
     "postcss-preset-env": "8.3.2"
@@ -46,6 +51,7 @@
     "html-webpack-plugin": "5.5.1",
     "husky": "^8.0.3",
     "jsdom": "21.1.1",
+    "lint-staged": "^13.2.2",
     "mini-css-extract-plugin": "2.7.5",
     "mocha": "10.2.0",
     "postcss": "8.4.23",
