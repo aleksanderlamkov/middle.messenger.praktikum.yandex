@@ -2,6 +2,7 @@
 import jsxToDOM from 'jsxToDOM'
 import classNames from 'shared/utils/classNames'
 import Fragment from 'shared/ui/Fragment'
+import defaultAvatarSrc from 'assets/images/avatar-placeholder.jpg'
 import AvatarUploadControl from './components/AvatarUploadControl'
 import { TAvatarUpload } from './types'
 import './AvatarUpload.pcss'
@@ -12,7 +13,7 @@ const AvatarUpload = (props: TAvatarUpload) => {
     id = 'avatar',
     name = 'avatar',
     buttonLabel = 'Change avatar',
-    imgSrc = '/images/avatar-placeholder.jpg',
+    imgSrc = defaultAvatarSrc,
     error,
     onChange,
   } = props

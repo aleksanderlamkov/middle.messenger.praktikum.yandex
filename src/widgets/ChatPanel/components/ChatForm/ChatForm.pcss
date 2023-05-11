@@ -6,19 +6,31 @@
   align-items: center;
   column-gap: 30px;
 
+  @media (--tablet-s) {
+    column-gap: 20px;
+  }
+
   &__input {
     --input-height: 60px;
   }
 
   &__button {
+    --size: 50px;
     --iconFilter: initial;
 
+    @mixin square var(--size);
+
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     outline: none;
     background-color: transparent;
+
+    @media (--tablet-s) {
+      --size: 40px;
+    }
 
     &:hover:not([disabled]) {
       @media (--hoverable) {
@@ -32,6 +44,8 @@
     }
 
     &-icon {
+      @mixin square;
+
       filter: var(--iconFilter);
     }
   }

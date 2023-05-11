@@ -12,11 +12,13 @@
     "jsx": "react",
     "jsxFactory": "jsxToDOM",
     "baseUrl": ".",
+    "esModuleInterop": true,
     "paths": {
       "jsxToDOM": ["./src/shared/utils/jsxToDOM"],
       "pages": ["./src/pages"],
       "widgets/*": ["./src/widgets/*"],
-      "shared/*": ["./src/shared/*"]
+      "shared/*": ["./src/shared/*"],
+      "assets/*": ["./src/assets/*"]
     }
   }
 }

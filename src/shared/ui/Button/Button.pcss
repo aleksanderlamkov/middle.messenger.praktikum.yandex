@@ -17,7 +17,6 @@
 
   justify-content: center;
   align-items: center;
-  min-width: 250px;
   height: var(--buttonHeight);
   padding-inline: var(--buttonPaddingX);
   text-align: center;
@@ -26,6 +25,10 @@
   border: 2px solid var(--buttonBorderColor);
   border-radius: var(--buttonBorderRadius);
   box-shadow: var(--buttonBoxShadow);
+
+  @media (--mobile-s-above) {
+    min-width: 250px;
+  }
 
   &:hover {
     @media (--hoverable) {

@@ -1,5 +1,6 @@
 import './reset.pcss'
 import './normalize.pcss'
+import './fonts.pcss'
 import './vars.pcss'
 import './utils.pcss'
 import './globals.pcss'

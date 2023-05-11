@@ -7,13 +7,16 @@
   display: flex;
   column-gap: 10px;
   width: 100%;
-  max-width: 416px;
   padding: 20px 15px;
   background-color: var(--color-dark);
   border: var(--border-light);
   border-radius: var(--border-radius-small);
   box-shadow: var(--box-shadow);
   user-select: none;
+
+  @media (--tablet-s-above) {
+    max-width: 416px;
+  }
 
   &:hover,
   &.is-active {

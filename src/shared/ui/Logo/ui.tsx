@@ -3,6 +3,7 @@ import jsxToDOM from 'jsxToDOM'
 import classNames from 'shared/utils/classNames'
 import Fragment from 'shared/ui/Fragment'
 import RouterLink from 'shared/ui/RouterLink'
+import logoImgSrc from 'assets/images/logo.svg'
 import { TLogo } from './types'
 import './Logo.pcss'
 
@@ -24,7 +25,7 @@ const Logo = (props: TLogo) => {
           content: (
             <img
               className="logo__image"
-              src="/images/logo.svg"
+              src={logoImgSrc}
               alt={title}
               title={title}
             />

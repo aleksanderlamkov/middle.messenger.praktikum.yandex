@@ -5,10 +5,10 @@ import Fragment from 'shared/ui/Fragment'
 import Button from 'shared/ui/Button'
 import ChatMessages from 'widgets/ChatPanel/components/ChatMessages'
 import ChatForm from 'widgets/ChatPanel/components/ChatForm'
+import defaultAvatarSrc from 'assets/images/avatar-placeholder.jpg'
+import horizontalDotsImgSrc from 'assets/icons/horizontal-dots.svg'
 import { TCurrentChat } from './types'
 import './CurrentChat.pcss'
-
-const defaultAvatarSrc = '/images/avatar-placeholder.jpg'
 
 const CurrentChat = (props: TCurrentChat) => {
   const {
@@ -39,7 +39,7 @@ const CurrentChat = (props: TCurrentChat) => {
         <Tooltip
           buttonContent={
             <img
-              src="/icons/horizontal-dots.svg"
+              src={horizontalDotsImgSrc}
               alt=""
               width="24"
               height="24"
