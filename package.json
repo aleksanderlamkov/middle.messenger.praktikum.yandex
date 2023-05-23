@@ -1,8 +1,8 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
-  "repository": "git@github.com:Blackwh1te/middle.messenger.praktikum.yandex.git",
-  "author": "a.lamkov <a.lamkov@vk.team>",
+  "repository": "git@github.com:aleksanderlamkov/middle.messenger.praktikum.yandex.git",
+  "author": "Aleksander Lamkov <aleksanderlamkov@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": ">=16"
